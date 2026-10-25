@@ -160,7 +160,6 @@
   ],
   "gallery_h": "Un écran de veille qu’on a envie de regarder",
   "gallery_text": "Choisissez Gallery dans Settings, Screensaver. 21 paysages peints du domaine public, ou vos propres photos, sous une horloge, un calendrier et la météo sur verre dépoli. Les tableaux ne se téléchargent que si vous choisissez cet écran de veille.",
-  "gallery_alt": "L’écran de veille Galerie : horloge, calendriers, musique et météo sur verre, devant Un orage dans les Rocheuses d’Albert Bierstadt",
   "gallery_caption": "L’écran de veille Galerie sur une télé.",
   "install_h": "Installer",
   "install_intro": "Koolest n’est pas encore sur le Play Store : on l’installe à partir d’un fichier APK. Il fonctionne sur Android TV et Google TV avec Android 8.0 ou plus récent.",
@@ -307,7 +306,6 @@
     "Tableaux : domaine public, via Wikimedia Commons",
     "Les logos sont des marques de leurs propriétaires"
   ],
-  "gallery_shot_caption": "Un orage dans les Rocheuses, mont Rosalie, Albert Bierstadt, 1866.",
   "gallery_video_label": "L’écran de veille Galerie : les pages météo défilent et le tableau change",
   "gallery_points": "<li>Une grande horloge avec le calendrier grégorien, persan (solaire hégirien) ou les deux</li><li>La météo actuelle, puis les prochaines heures, cinq jours et les détails, qui défilent comme StandBy (▲ ▼ sur la télécommande)</li><li>La musique en cours, avec la pochette et la progression (Settings, Screensaver, Music)</li><li>◀ ▶ pour passer d’un tableau à l’autre</li>"
 }

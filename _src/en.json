@@ -160,7 +160,6 @@
   ],
   "gallery_h": "A screensaver worth looking at",
   "gallery_text": "Choose Gallery in Settings, Screensaver. 21 public-domain landscape paintings, or your own photos, under a clock, calendar and weather on frosted glass. The paintings download only if you pick this screensaver.",
-  "gallery_alt": "The Gallery screensaver: a clock, calendar tiles, music and weather on glass over A Storm in the Rocky Mountains by Albert Bierstadt",
   "gallery_caption": "The Gallery screensaver on a TV.",
   "install_h": "Install",
   "install_intro": "Koolest isn’t on the Play Store yet, so it’s installed as an APK file. It works on Android TV and Google TV with Android 8.0 or newer.",
@@ -307,7 +306,6 @@
     "Paintings: public domain, via Wikimedia Commons",
     "Logos are trademarks of their owners"
   ],
-  "gallery_shot_caption": "A Storm in the Rocky Mountains, Mt. Rosalie, Albert Bierstadt, 1866.",
   "gallery_video_label": "The Gallery screensaver, its weather pages turning and the painting changing",
   "gallery_points": "<li>A big clock with Gregorian, Persian (Shamsi) or both calendars</li><li>The weather now, then the next hours, five days and details, turning like StandBy (▲ ▼ on the remote)</li><li>What’s playing, with the cover and progress (Settings, Screensaver, Music)</li><li>◀ ▶ step through the paintings</li>"
 }
