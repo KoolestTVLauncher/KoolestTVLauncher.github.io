@@ -437,12 +437,14 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
 <section id="gallery" aria-labelledby="gallery-h">
   <div class="wrap split center">
     <figure>
-      <button class="zoomable" type="button" data-zoom="/img/gallery.webp" data-caption="{{gallery_caption}}" aria-label="{{enlarge}}"><img src="/img/gallery.webp" alt="{{gallery_alt}}" loading="lazy" width="1600" height="900"></button>
+      <video src="/img/screensaver.mp4" poster="/img/screensaver-poster.webp" muted loop autoplay playsinline preload="none" width="1280" height="720" aria-label="{{gallery_video_label}}"></video>
       <figcaption>{{gallery_caption}}</figcaption>
     </figure>
     <div>
       <h2 id="gallery-h">{{gallery_h}}</h2>
       <p class="intro">{{gallery_text}}</p>
+      <ul>{{gallery_points}}</ul>
+      <button class="zoomable" type="button" data-zoom="/img/screensaver.webp" data-caption="{{gallery_shot_caption}}" aria-label="{{enlarge}}"><img src="/img/screensaver.webp" alt="{{gallery_alt}}" loading="lazy" width="1920" height="1080"></button>
     </div>
   </div>
 </section>

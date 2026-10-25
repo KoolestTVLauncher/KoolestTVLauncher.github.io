@@ -140,7 +140,7 @@
     {
       "icon": "image",
       "title": "Fonds d’écran et écran de veille",
-      "text": "Envoyez une photo depuis votre téléphone avec un code QR, ou recevez une nouvelle photo Unsplash selon un horaire. L’écran de veille Galerie montre des tableaux du domaine public."
+      "text": "Envoyez une photo depuis votre téléphone avec un code QR, ou recevez une nouvelle photo Unsplash selon un horaire, choisie pour le mode clair ou sombre. L’écran de veille Galerie montre des tableaux du domaine public avec l’horloge, la météo et la musique."
     },
     {
       "icon": "lock",
@@ -158,10 +158,10 @@
       "text": "Les images se chargent juste avant que vous les atteigniez, et l’écran d’accueil dessine le moins de couches plein écran possible."
     }
   ],
-  "gallery_h": "Quand la télé se repose",
-  "gallery_text": "Choisissez Gallery dans Settings, Screensaver, et la télé affiche des paysages peints au 19<sup>e</sup> siècle par Church, Chichkine, Cropsey et Heade. Ils sont du domaine public, et ne se téléchargent que si vous choisissez cet écran de veille.",
-  "gallery_alt": "Les icebergs, un tableau de Frederic Edwin Church, affiché par l’écran de veille Galerie",
-  "gallery_caption": "L’écran de veille Galerie : Les icebergs, Frederic Edwin Church, 1861.",
+  "gallery_h": "Un écran de veille qu’on a envie de regarder",
+  "gallery_text": "Choisissez Gallery dans Settings, Screensaver. 21 paysages peints du domaine public, ou vos propres photos, sous une horloge, un calendrier et la météo sur verre dépoli. Les tableaux ne se téléchargent que si vous choisissez cet écran de veille.",
+  "gallery_alt": "L’écran de veille Galerie : horloge, calendriers, musique et météo sur verre, devant Un orage dans les Rocheuses d’Albert Bierstadt",
+  "gallery_caption": "L’écran de veille Galerie sur une télé.",
   "install_h": "Installer",
   "install_intro": "Koolest n’est pas encore sur le Play Store : on l’installe à partir d’un fichier APK. Il fonctionne sur Android TV et Google TV avec Android 8.0 ou plus récent.",
   "install_downloader_h": "Avec l’appli Downloader",
@@ -279,7 +279,7 @@
     "télécharger une photo de Lorem Picsum, seulement si vous choisissez les photos Unsplash",
     "obtenir la météo, seulement si vous l’activez, auprès d’ipwho.is et d’Open-Meteo"
   ],
-  "privacy_after": "L’option Add from phone ouvre une petite page d’envoi sur la télé elle-même, accessible seulement sur votre réseau domestique et seulement pendant que cet écran est ouvert.",
+  "privacy_after": "Music, dans les réglages de l’écran de veille, active l’accès aux notifications, seul moyen pour Android de partager ce qui joue. Koolest lit le morceau en cours et rien d’autre. L’option Add from phone ouvre une petite page d’envoi sur la télé elle-même, accessible seulement sur votre réseau domestique et seulement pendant que cet écran est ouvert.",
   "footer_about": "Créé par <a href=\"https://github.com/benymaxparsa\">Parsa Kamalipour</a>. Logiciel libre sous <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">licence GNU GPL v3.0</a>. Basé sur <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> d’aradhyas8, avec un langage visuel inspiré de l’appli télé de 30nama.",
   "footer_project": "Projet",
   "footer_links": [
@@ -306,5 +306,8 @@
     "Fond d’écran : « Canada » de Thomas Curryer, <a href=\"https://unsplash.com/@tawc20\">Unsplash</a>",
     "Tableaux : domaine public, via Wikimedia Commons",
     "Les logos sont des marques de leurs propriétaires"
-  ]
+  ],
+  "gallery_shot_caption": "Un orage dans les Rocheuses, mont Rosalie, Albert Bierstadt, 1866.",
+  "gallery_video_label": "L’écran de veille Galerie : les pages météo défilent et le tableau change",
+  "gallery_points": "<li>Une grande horloge avec le calendrier grégorien, persan (solaire hégirien) ou les deux</li><li>La météo actuelle, puis les prochaines heures, cinq jours et les détails, qui défilent comme StandBy (▲ ▼ sur la télécommande)</li><li>La musique en cours, avec la pochette et la progression (Settings, Screensaver, Music)</li><li>◀ ▶ pour passer d’un tableau à l’autre</li>"
 }
