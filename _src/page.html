@@ -1,0 +1,665 @@
+<!doctype html>
+<html lang="{{lang}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="https://koolesttvlauncher.github.io{{path}}">
+<link rel="alternate" hreflang="en" href="https://koolesttvlauncher.github.io/">
+<link rel="alternate" hreflang="fr" href="https://koolesttvlauncher.github.io/fr/">
+<link rel="alternate" hreflang="x-default" href="https://koolesttvlauncher.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Koolest TV Launcher">
+<meta property="og:locale" content="{{locale}}">
+<meta property="og:title" content="{{title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="https://koolesttvlauncher.github.io{{path}}">
+<meta property="og:image" content="https://koolesttvlauncher.github.io{{og_image}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f3f5fa" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131a2c" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/img/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/img/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/img/home.webp" fetchpriority="high">
+<script>
+  // Before first paint, so a saved theme never flashes the other one.
+  try { const t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Koolest TV Launcher",
+ "operatingSystem": "Android TV 8.0+", "applicationCategory": "UtilitiesApplication",
+ "description": "{{description}}", "inLanguage": "{{lang}}",
+ "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+ "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+ "downloadUrl": "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases/latest/download/Koolest.apk",
+ "screenshot": "https://koolesttvlauncher.github.io/img/home.webp"}
+</script>
+<style>
+/* Light: a clear morning. Dark: the default wallpaper's dusk. Both share Koolest's red. */
+:root {
+  --bg: #f3f5fa;
+  --surface: #ffffff;
+  --raised: #e8ecf5;
+  --line: #d8deea;
+  --ink: #121829;
+  --muted: #4b5470;
+  --bar: rgba(255, 255, 255, .74);
+  --edge: rgba(18, 24, 41, .1);
+  --glow: rgba(240, 140, 80, .2);
+  --code: #ffffff;
+  --shadow: 0 30px 70px -36px rgba(25, 35, 75, .45);
+  --red: #d7383e;   /* the button: white text on it passes AA */
+  --accent: #f0454a;/* Koolest's own red, for marks only */
+  --radius: 14px;
+  --col: 1240px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131a2c; --surface: #1a2238; --raised: #212a46; --line: #2c3654; --ink: #f2f3f7; --muted: #a9b0c6;
+    --bar: rgba(19, 26, 44, .72); --edge: rgba(255, 255, 255, .13); --glow: rgba(231, 164, 100, .3); --code: #0f1424;
+    --shadow: 0 40px 110px -30px rgba(231, 164, 100, .3); color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131a2c; --surface: #1a2238; --raised: #212a46; --line: #2c3654; --ink: #f2f3f7; --muted: #a9b0c6;
+  --bar: rgba(19, 26, 44, .72); --edge: rgba(255, 255, 255, .13); --glow: rgba(231, 164, 100, .3); --code: #0f1424;
+  --shadow: 0 40px 110px -30px rgba(231, 164, 100, .3); color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 96px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font: 400 18px/1.6 Vazirmatn, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  transition: background-color .25s ease, color .25s ease;
+}
+img, video { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration-color: color-mix(in srgb, currentColor 40%, transparent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:hover { text-decoration-color: currentColor; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 8px; }
+::selection { background: var(--accent); color: #fff; }
+svg.i { width: 1.2em; height: 1.2em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .84em; }
+:not(pre) > code { background: var(--raised); padding: .12em .42em; border-radius: 6px; overflow-wrap: anywhere; }
+.wrap { max-width: var(--col); margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-left)); }
+.skip { position: absolute; left: -999px; top: 8px; z-index: 30; background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 8px; }
+.skip:focus { left: 16px; }
+.muted { color: var(--muted); }
+p { margin: 0 0 14px; }
+
+/* Top bar: the same glass capsule as Koolest's clock and weather */
+.bar {
+  position: sticky; top: 12px; z-index: 20;
+  margin: 12px auto 0; width: calc(100% - 32px); max-width: calc(var(--col) - 48px);
+  display: flex; align-items: center; gap: 6px;
+  padding: 7px 7px 7px 16px;
+  background: var(--bar);
+  backdrop-filter: blur(18px) saturate(1.5); -webkit-backdrop-filter: blur(18px) saturate(1.5);
+  border: 1px solid var(--edge); border-radius: 999px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; text-decoration: none; margin-right: auto; white-space: nowrap; }
+.brand img { width: 28px; height: 28px; }
+.links { display: flex; gap: 2px; }
+.links a { text-decoration: none; color: var(--muted); padding: 7px 13px; border-radius: 999px; font-size: 16px; white-space: nowrap; }
+.links a:hover { color: var(--ink); background: var(--raised); }
+.links a[aria-current="true"] { color: var(--ink); background: var(--raised); }
+.tools { display: flex; align-items: center; gap: 4px; }
+.chip {
+  display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 38px; min-width: 38px; padding: 0 10px;
+  border: 0; border-radius: 999px; background: transparent; color: var(--muted);
+  font: 600 14px/1 Vazirmatn, sans-serif; text-decoration: none; cursor: pointer;
+}
+.chip:hover { color: var(--ink); background: var(--raised); }
+.chip.dl { background: var(--red); color: #fff; padding: 0 16px; }
+.chip.dl:hover { background: color-mix(in srgb, var(--red) 88%, #fff); }
+.menu-btn { display: none; }
+.drawer { display: contents; }
+@media (max-width: 960px) {
+  .menu-btn { display: inline-flex; }
+  .drawer {
+    display: none; position: absolute; top: calc(100% + 8px); right: 0; left: 0;
+    padding: 10px; border-radius: 22px; background: var(--surface); border: 1px solid var(--edge); box-shadow: var(--shadow);
+    flex-direction: column; gap: 6px;
+  }
+  .bar.open .drawer { display: flex; }
+  .links { flex-direction: column; }
+  .links a { padding: 12px 14px; font-size: 18px; border-radius: 12px; }
+  .tools { justify-content: flex-start; gap: 8px; border-top: 1px solid var(--line); padding-top: 8px; }
+  .tools .chip { background: var(--raised); color: var(--ink); height: 44px; min-width: 44px; }
+}
+@media (max-width: 420px) { .chip.dl span { display: none; } .chip.dl { padding: 0 11px; } }
+
+.suggest { max-width: calc(var(--col) - 48px); width: calc(100% - 32px); margin: 10px auto 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 10px 16px; border-radius: 16px; background: var(--raised); font-size: 16px; }
+.suggest[hidden] { display: none; }
+.suggest a { font-weight: 700; }
+.suggest button { margin-left: auto; background: none; border: 0; color: var(--muted); font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Hero */
+.hero { position: relative; padding: 64px 0 24px; isolation: isolate; overflow-x: clip; }
+.hero::before { content: ""; position: absolute; inset: 20% -10% -10% 30%; z-index: -1; background: radial-gradient(50% 50% at 50% 50%, var(--glow), transparent 70%); pointer-events: none; }
+h1 { font-size: clamp(42px, 6.6vw, 84px); line-height: 1; font-weight: 800; letter-spacing: -.028em; margin: 0 0 22px; max-width: 13ch; text-wrap: balance; }
+.lede { font-size: clamp(19px, 2vw, 22px); color: var(--muted); max-width: 40ch; margin: 0 0 30px; font-weight: 300; text-wrap: pretty; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px; min-height: 52px;
+  font: 700 17px/1 Vazirmatn, sans-serif; text-decoration: none;
+  padding: 0 22px; border-radius: 999px; border: 1px solid var(--edge);
+  background: var(--surface); color: var(--ink);
+  transition: transform .15s ease, background-color .15s ease;
+}
+.btn:hover { background: var(--raised); }
+.btn.primary { background: var(--red); border-color: transparent; color: #fff; }
+.btn.primary:hover { background: color-mix(in srgb, var(--red) 88%, #fff); }
+.btn:active { transform: scale(.97); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; padding: 0; margin: 26px 0 8px; color: var(--muted); font-size: 16px; }
+.facts li { display: flex; align-items: center; gap: 8px; }
+.facts svg { color: var(--accent); }
+.note { color: var(--muted); font-size: 15px; margin: 0; }
+
+.tv { margin: 48px auto 0; max-width: 1040px; }
+.screen {
+  position: relative; border-radius: 18px; overflow: hidden; background: #000;
+  border: 10px solid #0a0d17; box-shadow: 0 0 0 1px var(--edge), var(--shadow); aspect-ratio: 16 / 9;
+}
+.screen video { width: 100%; height: 100%; object-fit: cover; }
+.stand { width: 26%; height: 10px; margin: 0 auto; background: linear-gradient(#0a0d17, #2b303d); border-radius: 0 0 10px 10px; }
+.play {
+  position: absolute; right: 14px; bottom: 14px; width: 44px; height: 44px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .25); background: rgba(0, 0, 0, .5); color: #fff; cursor: pointer;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: grid; place-items: center;
+}
+.play svg { width: 18px; height: 18px; fill: currentColor; stroke: none; }
+.tv figcaption { text-align: center; color: var(--muted); font-size: 15px; margin-top: 18px; }
+@media (min-width: 1000px) {
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 7fr); gap: 56px; align-items: center; }
+  .hero h1 { font-size: clamp(46px, 4.4vw, 66px); max-width: 12ch; }
+  .tv { margin: 0; }
+}
+
+/* Sections */
+section { padding: 104px 0 0; }
+h2 { font-size: clamp(32px, 4.2vw, 50px); line-height: 1.05; font-weight: 800; letter-spacing: -.02em; margin: 0 0 14px; text-wrap: balance; }
+h3 { font-size: 21px; line-height: 1.3; margin: 0 0 6px; font-weight: 700; text-wrap: balance; }
+.intro { color: var(--muted); max-width: 60ch; margin: 0 0 40px; font-size: 19px; text-wrap: pretty; }
+
+/* The tour: a billboard and a row, the way Koolest's home screen works */
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: end; }
+.billboard {
+  position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--edge); border-radius: var(--radius);
+  overflow: hidden; aspect-ratio: 16 / 9; background: #0a0d17; cursor: zoom-in; box-shadow: var(--shadow);
+}
+.billboard img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .3s ease; }
+.billboard img.out { opacity: 0; }
+.billboard .zoom { position: absolute; right: 12px; top: 12px; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: rgba(0, 0, 0, .5); color: #fff; opacity: 0; transition: opacity .2s ease; }
+.billboard:hover .zoom, .billboard:focus-visible .zoom { opacity: 1; }
+.say h3 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; margin: 0 0 10px; }
+.say p { color: var(--muted); }
+.pager { display: flex; align-items: center; gap: 8px; margin-top: 18px; }
+.pager .count { color: var(--muted); font-size: 15px; margin-right: auto; font-variant-numeric: tabular-nums; }
+.round { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--edge); background: var(--surface); color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.round:hover { background: var(--raised); }
+.round:disabled { opacity: .4; cursor: default; }
+.row {
+  display: flex; gap: 14px; overflow-x: auto; padding: 22px 6px 14px; margin: 0 -6px;
+  scroll-snap-type: x mandatory; scrollbar-width: thin; overscroll-behavior-x: contain;
+}
+.row button {
+  flex: 0 0 auto; width: 200px; padding: 0; border: 0; background: none; color: var(--muted);
+  font: 500 15px/1.3 Vazirmatn, sans-serif; text-align: left; cursor: pointer; scroll-snap-align: start;
+}
+.row button img {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; background: #0a0d17;
+  outline: 3px solid transparent; outline-offset: 2px; transition: transform .2s ease, outline-color .2s ease;
+}
+.row button span { display: block; margin-top: 10px; }
+.row button[aria-selected="true"] { color: var(--ink); }
+.row button[aria-selected="true"] img { outline-color: var(--ink); transform: scale(1.04); }
+.row button:focus-visible { outline: none; }
+.row button:focus-visible img { outline-color: var(--ink); transform: scale(1.06); }
+.hint { color: var(--muted); font-size: 15px; margin: 0; }
+kbd { font: 600 13px Vazirmatn, sans-serif; border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; padding: 0 6px; background: var(--surface); }
+@media (max-width: 900px) { .stage { grid-template-columns: 1fr; gap: 18px; } .say { min-height: 150px; } .row button { width: 160px; } }
+@media (hover: none) { .hint { display: none; } }
+
+/* Features */
+.features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 56px; margin: 0; padding: 0; list-style: none; }
+.features li { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 4px 16px; border-top: 1px solid var(--line); padding-top: 20px; }
+.features .ic { grid-row: span 2; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--raised); color: var(--ink); }
+.features .ic svg { width: 22px; height: 22px; }
+.features p { color: var(--muted); margin: 0; }
+@media (max-width: 760px) { .features { grid-template-columns: 1fr; } }
+
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+.split.center { align-items: center; }
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 28px; } }
+figure { margin: 0; }
+figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; }
+.zoomable { display: block; width: 100%; padding: 0; border: 1px solid var(--edge); border-radius: var(--radius); overflow: hidden; background: none; cursor: zoom-in; }
+.zoomable img { width: 100%; }
+
+/* Install */
+.ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.way { background: var(--surface); border: 1px solid var(--edge); border-radius: 18px; padding: 24px; }
+.way.first { grid-row: span 1; }
+.way p { color: var(--muted); font-size: 17px; }
+@media (max-width: 960px) { .ways { grid-template-columns: 1fr; } }
+.copybox { display: flex; align-items: center; gap: 8px; background: var(--code); border: 1px solid var(--line); border-radius: 12px; padding: 6px 6px 6px 16px; margin: 4px 0 14px; }
+.copybox code, .copybox span { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; background: none; padding: 8px 0; scrollbar-width: none; }
+.copybox span { font: 700 19px/1.2 Vazirmatn, sans-serif; }
+.copy { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border-radius: 9px; border: 1px solid var(--edge); background: var(--raised); color: var(--ink); font: 600 14px/1 Vazirmatn, sans-serif; cursor: pointer; }
+.copy:hover { border-color: var(--ink); }
+.copy[data-done] { color: #1e8e4e; border-color: currentColor; }
+
+/* Setup steps: a real sequence */
+.steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+.steps > li { counter-increment: step; position: relative; padding: 0 0 26px 58px; }
+.steps > li::before {
+  content: counter(step); position: absolute; left: 0; top: -2px; width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 800; font-size: 17px; background: var(--ink); color: var(--bg);
+}
+.steps > li:not(:last-child)::after { content: ""; position: absolute; left: 18px; top: 42px; bottom: 6px; width: 2px; background: var(--line); }
+.steps p { color: var(--muted); margin: 0 0 8px; }
+.steps h3 { padding-top: 4px; }
+.callout { background: var(--raised); border-radius: 16px; padding: 18px 20px; color: var(--muted); margin: 8px 0 0; }
+.callout p { margin: 0; }
+.callout strong { color: var(--ink); }
+.figs { display: grid; gap: 28px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 17px; }
+th, td { text-align: left; padding: 15px 16px 15px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; font-size: 15px; }
+td:first-child { width: 42%; font-weight: 500; }
+td:last-child { color: var(--muted); }
+@media (max-width: 640px) {
+  thead { display: none; }
+  tr { display: block; border-bottom: 1px solid var(--line); padding: 12px 0; }
+  td { display: block; width: auto !important; border: 0; padding: 2px 0; }
+}
+
+.faq details { border-bottom: 1px solid var(--line); }
+.faq details:first-child { border-top: 1px solid var(--line); }
+.faq summary { cursor: pointer; padding: 20px 0; font-weight: 700; font-size: 19px; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary svg { transition: transform .2s ease; color: var(--muted); }
+.faq details[open] summary svg { transform: rotate(45deg); }
+.faq details > div { padding: 0 0 22px; color: var(--muted); max-width: 72ch; }
+pre { margin: 0; }
+
+.privacy ul { color: var(--muted); padding-left: 20px; margin: 0 0 14px; }
+.privacy li { margin-bottom: 6px; }
+
+footer { margin-top: 120px; border-top: 1px solid var(--line); padding: 44px 0 calc(48px + env(safe-area-inset-bottom)); color: var(--muted); font-size: 15px; }
+footer .cols { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 32px; }
+footer h3 { font-size: 16px; color: var(--ink); }
+footer ul { list-style: none; padding: 0; margin: 0; }
+footer li { margin-bottom: 6px; }
+.prefs { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.seg { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--raised); }
+.seg a, .seg button { border: 0; background: none; color: var(--muted); font: 600 14px/1 Vazirmatn, sans-serif; padding: 8px 14px; border-radius: 999px; cursor: pointer; text-decoration: none; }
+.seg [aria-pressed="true"], .seg [aria-current="true"] { background: var(--surface); color: var(--ink); box-shadow: 0 1px 3px rgba(0, 0, 0, .12); }
+@media (max-width: 760px) { footer .cols { grid-template-columns: 1fr; } }
+
+/* Enlarged screenshots */
+dialog.lb { padding: 0; border: 0; background: transparent; max-width: min(96vw, 1600px); max-height: 94vh; overflow: visible; }
+dialog.lb::backdrop { background: rgba(5, 8, 16, .86); backdrop-filter: blur(6px); }
+dialog.lb img { max-height: 88vh; width: auto; border-radius: 12px; margin: 0 auto; }
+dialog.lb p { color: #e6e8f0; text-align: center; margin: 12px 0 0; font-size: 16px; }
+dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .3); background: rgba(0, 0, 0, .4); color: #fff; display: grid; place-items: center; cursor: pointer; }
+
+@media (max-width: 520px) { body { font-size: 17px; } section { padding-top: 80px; } .screen { border-width: 6px; } .hero { padding-top: 40px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before { transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></symbol>
+  <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 4a8 8 0 0 1 0 16z" fill="currentColor"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 8.5v7l6-3.5z"/></symbol>
+  <symbol id="i-rows" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="6" rx="1.5"/><rect x="3.5" y="13.5" width="7.5" height="6" rx="1.5"/><rect x="13" y="13.5" width="7.5" height="6" rx="1.5"/></symbol>
+  <symbol id="i-gamepad" viewBox="0 0 24 24"><path d="M7.5 8h9a4.5 4.5 0 0 1 4.4 5.4l-.5 2.4a2.6 2.6 0 0 1-4.5 1.2L14.4 15H9.6L8.1 17a2.6 2.6 0 0 1-4.5-1.2l-.5-2.4A4.5 4.5 0 0 1 7.5 8zM8 10.5v3M6.5 12h3M15.5 11.5h.01M17 13h.01"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9zM18.5 15l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9z"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7v9h-5.5v-5.5h-5V20H4z"/></symbol>
+  <symbol id="i-weather" viewBox="0 0 24 24"><circle cx="9" cy="9" r="3.5"/><path d="M9 2.5V4M2.5 9H4M4.4 4.4l1 1M13.6 4.4l-1 1"/><path d="M9 20h8.5a3.5 3.5 0 0 0 .3-7 5 5 0 0 0-9.4 1.6A2.8 2.8 0 0 0 9 20z"/></symbol>
+  <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="15.5" cy="9.5" r="1.5"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-update" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></symbol>
+  <symbol id="i-speed" viewBox="0 0 24 24"><path d="M4.6 18a9 9 0 1 1 14.8 0M12 14l4-4.5"/><circle cx="12" cy="14" r="1.2"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path stroke="none" fill="currentColor" d="M12 .6a11.4 11.4 0 0 0-3.6 22.2c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.8.4-1.3.7-1.6-2.5-.3-5.2-1.3-5.2-5.7 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3 0 0 1-.3 3.1 1.2a10.8 10.8 0 0 1 5.8 0c2.2-1.5 3.1-1.2 3.1-1.2.6 1.6.2 2.7.1 3 .7.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.2 5.7.4.4.8 1.1.8 2.1v3.2c0 .3.2.7.8.6A11.4 11.4 0 0 0 12 .6z"/></symbol>
+</svg>
+<a class="skip" href="#main">{{skip}}</a>
+
+<header class="bar" id="bar">
+  <a class="brand" href="{{path}}"><img src="/img/icon.svg" alt="" width="28" height="28">Koolest</a>
+  <div class="drawer" id="drawer">
+    <nav class="links" aria-label="{{nav_label}}">
+      <a href="#tour">{{nav_tour}}</a>
+      <a href="#features">{{nav_features}}</a>
+      <a href="#install">{{nav_install}}</a>
+      <a href="#setup">{{nav_setup}}</a>
+      <a href="#help">{{nav_help}}</a>
+    </nav>
+    <div class="tools">
+      <a class="chip" href="{{alt_path}}" hreflang="{{alt_lang}}" lang="{{alt_lang}}" data-lang-link title="{{alt_name}}">{{alt_lang_upper}}</a>
+      <button class="chip" type="button" id="themeBtn" aria-label="{{theme_label}}: {{theme_auto}}"><svg class="i"><use href="#i-auto"/></svg></button>
+      <a class="chip" href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
+    </div>
+  </div>
+  <a class="chip dl" href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases/latest/download/Koolest.apk"><svg class="i"><use href="#i-download"/></svg><span>{{download_short}}</span></a>
+  <button class="chip menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="{{menu}}"><svg class="i"><use href="#i-menu"/></svg></button>
+</header>
+<div class="suggest" id="suggest" lang="{{alt_lang}}" hidden>
+  <span>{{lang_suggest}}</span> <a href="{{alt_path}}" data-lang-link>{{lang_suggest_go}}</a>
+  <button type="button" id="suggestClose">{{lang_suggest_close}}</button>
+</div>
+
+<main id="main">
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>{{h1}}</h1>
+      <p class="lede">{{lede}}</p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases/latest/download/Koolest.apk"><svg class="i"><use href="#i-download"/></svg>{{cta_download}}</a>
+        <a class="btn" href="#install">{{cta_install}}</a>
+      </div>
+      <ul class="facts">{{facts_list}}</ul>
+      <p class="note">{{version_note}}</p>
+    </div>
+    <figure class="tv">
+      <div class="screen">
+        <video id="demo" src="/img/demo.mp4" poster="/img/home.webp" muted loop playsinline preload="metadata" aria-label="{{video_label}}"></video>
+        <button class="play" id="play" type="button" aria-label="{{pause}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path id="playIcon" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button>
+      </div>
+      <div class="stand"></div>
+      <figcaption>{{video_caption}}</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="tour" aria-labelledby="tour-h">
+  <div class="wrap">
+    <h2 id="tour-h">{{tour_h}}</h2>
+    <p class="intro">{{tour_intro}}</p>
+    <div class="stage">
+      <button class="billboard" type="button" id="bb" aria-label="{{enlarge}}">
+        <img id="bbImg" src="/img/home.webp" alt="" width="1600" height="900">
+        <span class="zoom" aria-hidden="true"><svg class="i"><use href="#i-expand"/></svg></span>
+      </button>
+      <div class="say">
+        <div aria-live="polite"><h3 id="bbTitle"></h3><p id="bbText"></p></div>
+        <div class="pager">
+          <span class="count" id="bbCount"></span>
+          <button class="round" type="button" id="bbPrev" aria-label="{{prev}}"><svg class="i"><use href="#i-left"/></svg></button>
+          <button class="round" type="button" id="bbNext" aria-label="{{next}}"><svg class="i"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="row" role="tablist" aria-label="{{tour_h}}" id="row">{{tour_buttons}}</div>
+    <p class="hint">{{tour_hint}}</p>
+  </div>
+</section>
+
+<section id="features" aria-labelledby="features-h">
+  <div class="wrap">
+    <h2 id="features-h">{{features_h}}</h2>
+    <p class="intro">{{features_intro}}</p>
+    <ul class="features">{{features_list}}</ul>
+  </div>
+</section>
+
+<section id="gallery" aria-labelledby="gallery-h">
+  <div class="wrap split center">
+    <figure>
+      <button class="zoomable" type="button" data-zoom="/img/gallery.webp" data-caption="{{gallery_caption}}" aria-label="{{enlarge}}"><img src="/img/gallery.webp" alt="{{gallery_alt}}" loading="lazy" width="1600" height="900"></button>
+      <figcaption>{{gallery_caption}}</figcaption>
+    </figure>
+    <div>
+      <h2 id="gallery-h">{{gallery_h}}</h2>
+      <p class="intro">{{gallery_text}}</p>
+    </div>
+  </div>
+</section>
+
+<section id="install" aria-labelledby="install-h">
+  <div class="wrap">
+    <h2 id="install-h">{{install_h}}</h2>
+    <p class="intro">{{install_intro}}</p>
+    <div class="ways">
+      <div class="way first">
+        <h3>{{install_downloader_h}}</h3>
+        <p>{{install_downloader_1}}</p>
+        <div class="copybox"><span>koolesttvlauncher.github.io/get</span>{{copy_btn:koolesttvlauncher.github.io/get}}</div>
+        <p>{{install_downloader_2}}</p>
+      </div>
+      <div class="way">
+        <h3>{{install_usb_h}}</h3>
+        <p>{{install_usb}}</p>
+      </div>
+      <div class="way">
+        <h3>{{install_adb_h}}</h3>
+        <p>{{install_adb}}</p>
+        {{code:adb install Koolest.apk}}
+      </div>
+    </div>
+    <p class="note" style="margin-top:22px">{{install_then}}</p>
+  </div>
+</section>
+
+<section id="setup" aria-labelledby="setup-h">
+  <div class="wrap split">
+    <div>
+      <h2 id="setup-h">{{setup_h}}</h2>
+      <p class="intro">{{setup_intro}}</p>
+      <ol class="steps">{{steps_list}}</ol>
+      <div class="callout"><p>{{callout}}</p></div>
+    </div>
+    <div class="figs">
+      <figure>
+        <button class="zoomable" type="button" data-zoom="/img/thistv.webp" data-caption="{{thistv_caption}}" aria-label="{{enlarge}}"><img src="/img/thistv-panel.webp" alt="{{thistv_alt}}" loading="lazy" width="800" height="560"></button>
+        <figcaption>{{thistv_caption}}</figcaption>
+      </figure>
+      <figure>
+        <img class="zoomable" style="cursor:default" src="/img/allow.webp" alt="{{allow_alt}}" loading="lazy" width="500" height="240">
+        <figcaption>{{allow_caption}}</figcaption>
+      </figure>
+      <p class="note">{{setup_note}}</p>
+    </div>
+  </div>
+</section>
+
+<section id="using" aria-labelledby="using-h">
+  <div class="wrap">
+    <h2 id="using-h">{{using_h}}</h2>
+    <table>
+      <thead><tr><th scope="col">{{using_col1}}</th><th scope="col">{{using_col2}}</th></tr></thead>
+      <tbody>{{using_rows}}</tbody>
+    </table>
+  </div>
+</section>
+
+<section id="help" aria-labelledby="help-h">
+  <div class="wrap">
+    <h2 id="help-h">{{help_h}}</h2>
+    <p class="intro">{{help_intro}}</p>
+    <div class="faq">{{faq_list}}</div>
+  </div>
+</section>
+
+<section id="privacy" class="privacy" aria-labelledby="privacy-h">
+  <div class="wrap split">
+    <div>
+      <h2 id="privacy-h">{{privacy_h}}</h2>
+      <p class="intro">{{privacy_intro}}</p>
+    </div>
+    <div>
+      <p>{{privacy_lead}}</p>
+      <ul>{{privacy_list}}</ul>
+      <p class="muted">{{privacy_after}}</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <h3>Koolest TV Launcher</h3>
+      <p>{{footer_about}}</p>
+      <div class="prefs">
+        <div class="seg" role="group" aria-label="{{lang_label}}">{{lang_seg}}</div>
+        <div class="seg" role="group" aria-label="{{theme_label}}" id="themeSeg">
+          <button type="button" data-theme-set="auto">{{theme_auto}}</button>
+          <button type="button" data-theme-set="light">{{theme_light}}</button>
+          <button type="button" data-theme-set="dark">{{theme_dark}}</button>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h3>{{footer_project}}</h3>
+      <ul>{{footer_links_list}}</ul>
+    </div>
+    <div>
+      <h3>{{footer_credits}}</h3>
+      <ul>{{credits_list}}</ul>
+    </div>
+  </div>
+</footer>
+
+<dialog class="lb" id="lb" aria-label="{{enlarge}}">
+  <button class="x" type="button" id="lbClose" aria-label="{{close}}"><svg class="i"><use href="#i-close"/></svg></button>
+  <img id="lbImg" src="" alt="">
+  <p id="lbCap"></p>
+</dialog>
+
+<script id="t" type="application/json">{{js_strings}}</script>
+<script>
+(() => {
+  const T = JSON.parse(document.getElementById('t').textContent);
+  const $ = id => document.getElementById(id);
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const store = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }, set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+
+  // Theme: Auto follows the system; Light and Dark are remembered.
+  const ICON = { auto: '#i-auto', light: '#i-sun', dark: '#i-moon' };
+  function applyTheme(t) {
+    if (t === 'auto') delete document.documentElement.dataset.theme; else document.documentElement.dataset.theme = t;
+    $('themeBtn').querySelector('use').setAttribute('href', ICON[t]);
+    $('themeBtn').setAttribute('aria-label', T.theme_label + ': ' + T['theme_' + t]);
+    document.querySelectorAll('[data-theme-set]').forEach(b => b.setAttribute('aria-pressed', b.dataset.themeSet === t));
+  }
+  let theme = store.get('theme') || 'auto';
+  applyTheme(theme);
+  const setTheme = t => { theme = t; store.set('theme', t); applyTheme(t); };
+  $('themeBtn').addEventListener('click', () => setTheme({ auto: 'light', light: 'dark', dark: 'auto' }[theme]));
+  document.querySelectorAll('[data-theme-set]').forEach(b => b.addEventListener('click', () => setTheme(b.dataset.themeSet)));
+
+  // Language: remember a choice made here, and offer the other language once to readers who use it.
+  document.querySelectorAll('[data-lang-link]').forEach(a => a.addEventListener('click', () => store.set('lang', a.hreflang || a.lang)));
+  const firstKnown = (navigator.languages || [navigator.language]).map(l => (l || '').slice(0, 2).toLowerCase()).find(l => l === 'en' || l === 'fr');
+  if (firstKnown === T.alt_lang && !store.get('lang') && !store.get('suggest-closed')) $('suggest').hidden = false;
+  $('suggestClose').addEventListener('click', () => { $('suggest').hidden = true; store.set('suggest-closed', '1'); });
+
+  // Phone menu
+  const bar = $('bar'), menuBtn = $('menuBtn');
+  const closeMenu = () => { bar.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); };
+  menuBtn.addEventListener('click', () => { const open = bar.classList.toggle('open'); menuBtn.setAttribute('aria-expanded', open); });
+  bar.querySelectorAll('.links a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+  document.addEventListener('click', e => { if (!bar.contains(e.target)) closeMenu(); });
+
+  // The section you're reading is marked in the bar.
+  const links = new Map([...document.querySelectorAll('.links a')].map(a => [a.hash.slice(1), a]));
+  const spy = new IntersectionObserver(entries => entries.forEach(en => {
+    if (!en.isIntersecting) return;
+    links.forEach(a => a.removeAttribute('aria-current'));
+    links.get(en.target.id)?.setAttribute('aria-current', 'true');
+  }), { rootMargin: '-45% 0px -50% 0px' });
+  links.forEach((_, id) => { const s = $(id); if (s) spy.observe(s); });
+
+  // Enlarged screenshots
+  const lb = $('lb');
+  function zoom(src, caption) { $('lbImg').src = src; $('lbImg').alt = caption; $('lbCap').textContent = caption; lb.showModal(); }
+  $('lbClose').addEventListener('click', () => lb.close());
+  lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
+  document.querySelectorAll('button[data-zoom]').forEach(b => b.addEventListener('click', () => zoom(b.dataset.zoom, b.dataset.caption)));
+
+  // The tour: arrow keys move along the row like the remote, and the billboard follows.
+  const tabs = [...$('row').querySelectorAll('button')];
+  let current = -1;
+  function show(i, focus) {
+    i = Math.max(0, Math.min(tabs.length - 1, i));
+    if (i === current) return;
+    current = i;
+    tabs.forEach((t, j) => { t.setAttribute('aria-selected', j === i); t.tabIndex = j === i ? 0 : -1; });
+    const t = tabs[i], it = T.tour[i];
+    $('bbTitle').textContent = it.title;
+    $('bbText').textContent = it.text;
+    $('bbCount').textContent = (i + 1) + ' ' + T.of + ' ' + tabs.length;
+    $('bbPrev').disabled = i === 0;
+    $('bbNext').disabled = i === tabs.length - 1;
+    const img = $('bbImg'), next = new Image();
+    img.classList.add('out');
+    next.src = '/img/' + it.img + '.webp';
+    next.decode().catch(() => {}).then(() => { if (current !== i) return; img.src = next.src; img.alt = it.title + ': ' + it.text; img.classList.remove('out'); });
+    const behavior = reduce.matches ? 'auto' : 'smooth';
+    const row = $('row');
+    row.scrollTo({ left: t.offsetLeft - row.clientWidth / 2 + t.clientWidth / 2, behavior });
+    if (focus) t.focus({ preventScroll: true });
+  }
+  tabs.forEach((t, i) => t.addEventListener('click', () => show(i, false)));
+  $('row').addEventListener('keydown', e => {
+    const to = { ArrowRight: current + 1, ArrowLeft: current - 1, Home: 0, End: tabs.length - 1 }[e.key];
+    if (to === undefined) return;
+    e.preventDefault();
+    show(to, true);
+  });
+  $('bbPrev').addEventListener('click', () => show(current - 1, false));
+  $('bbNext').addEventListener('click', () => show(current + 1, false));
+  $('bb').addEventListener('click', () => zoom('/img/' + T.tour[current].img + '.webp', T.tour[current].title));
+  show(0, false);
+
+  // Copy buttons
+  document.querySelectorAll('.copy').forEach(b => b.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); } catch (e) { return; }
+    const label = b.querySelector('span');
+    b.dataset.done = ''; label.textContent = T.copied; b.querySelector('use').setAttribute('href', '#i-check');
+    setTimeout(() => { delete b.dataset.done; label.textContent = T.copy; b.querySelector('use').setAttribute('href', '#i-copy'); }, 1800);
+  }));
+
+  // The demo plays on its own unless motion is reduced.
+  const v = $('demo'), pb = $('play'), icon = $('playIcon');
+  const sync = () => { icon.setAttribute('d', v.paused ? 'M8 5v14l11-7z' : 'M7 5h4v14H7zM13 5h4v14h-4z'); pb.setAttribute('aria-label', v.paused ? T.play : T.pause); };
+  pb.addEventListener('click', () => { v.paused ? v.play() : v.pause(); });
+  v.addEventListener('play', sync); v.addEventListener('pause', sync);
+  if (!reduce.matches) v.play().catch(sync);
+  sync();
+
+  // The latest version, straight from GitHub; the built-in number stays if that fails.
+  fetch('https://api.github.com/repos/KoolestTVLauncher/Koolest-TV-Launcher/releases/latest')
+    .then(r => r.ok ? r.json() : null)
+    .then(j => { if (j && j.tag_name) document.querySelectorAll('[data-version]').forEach(s => s.textContent = j.tag_name.replace(/^v/, '')); })
+    .catch(() => {});
+})();
+</script>
+</body>
+</html>

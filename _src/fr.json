@@ -1,0 +1,310 @@
+{
+  "lang": "fr",
+  "locale": "fr_CA",
+  "path": "/fr/",
+  "alt_lang": "en",
+  "alt_path": "/",
+  "alt_name": "English",
+  "title": "Koolest TV Launcher : un écran d’accueil pour Android TV, sans publicité",
+  "description": "Un écran d’accueil libre et gratuit pour Android TV et Google TV. Vos applis, vos émissions et vos consoles, sans publicité ni pistage.",
+  "og_image": "/img/og-fr.jpg",
+  "skip": "Aller au contenu",
+  "nav_label": "Sections",
+  "nav_tour": "Visite",
+  "nav_features": "Fonctions",
+  "nav_install": "Installer",
+  "nav_setup": "Configurer",
+  "nav_help": "Aide",
+  "download_short": "Télécharger",
+  "menu": "Menu",
+  "lang_label": "Langue",
+  "theme_label": "Thème",
+  "theme_auto": "Auto",
+  "theme_light": "Clair",
+  "theme_dark": "Sombre",
+  "lang_suggest": "This site is also in English.",
+  "lang_suggest_go": "Read in English",
+  "lang_suggest_close": "Rester en français",
+  "h1": "L’écran d’accueil de votre télé, sans la publicité.",
+  "lede": "Koolest est un lanceur libre et gratuit pour Android TV et Google TV. Vos applis, vos émissions et vos consoles, dans un design en verre pensé pour la télécommande.",
+  "cta_download": "Télécharger Koolest.apk",
+  "cta_install": "Comment l’installer",
+  "facts": [
+    "Libre et gratuit",
+    "Sans publicité ni pistage",
+    "Moins de 1 Mo"
+  ],
+  "version_note": "Version <span data-version>2.1.1</span>, pour Android 8.0 et plus récent.",
+  "video_label": "Koolest sur une télé : on parcourt les rangées, on ouvre le menu et Toutes les applis, puis les réglages",
+  "video_caption": "Enregistré sur une télé Google TV de TCL, à la télécommande. Seules les pauses ont été coupées.",
+  "play": "Lire la vidéo",
+  "pause": "Mettre la vidéo en pause",
+  "tour_h": "Faites le tour",
+  "tour_intro": "C’est aussi comme ça que fonctionne l’écran d’accueil : une rangée en bas, et une grande image de ce que vous sélectionnez.",
+  "tour_hint": "Utilisez <kbd>←</kbd> <kbd>→</kbd> sur votre clavier, comme la télécommande. Sélectionnez l’image pour l’agrandir.",
+  "prev": "Précédent",
+  "next": "Suivant",
+  "of": "sur",
+  "enlarge": "Agrandir",
+  "close": "Fermer",
+  "tour": [
+    {
+      "img": "home",
+      "title": "Continuer à regarder",
+      "text": "Tout ce que vous avez commencé, dans chaque appli qui le signale à la télé. Les applis que vous utilisez le plus passent en premier."
+    },
+    {
+      "img": "billboard",
+      "title": "La grande affiche",
+      "text": "Déplacez-vous dans une rangée et le fond passe en fondu à l’émission sélectionnée, avec le temps qu’il reste."
+    },
+    {
+      "img": "apps",
+      "title": "Applis",
+      "text": "Vos applis en larges tuiles à logo. Maintenez OK sur l’une d’elles pour la déplacer, et choisissez lesquelles s’affichent et dans quel ordre."
+    },
+    {
+      "img": "consoles",
+      "title": "Consoles et entrées",
+      "text": "PlayStation, Xbox, Switch, Steam Deck, Apple TV et d’autres ont une tuile avec leur propre logo. Sélectionnez-en une pour passer à son entrée."
+    },
+    {
+      "img": "youtube",
+      "title": "YouTube",
+      "text": "Des rangées tirées de vos applis : YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi et toute appli qui publie sur l’écran d’accueil."
+    },
+    {
+      "img": "spotify",
+      "title": "Spotify",
+      "text": "Les balados et émissions de Spotify ont leur propre rangée. Chaque rangée peut être désactivée dans les réglages."
+    },
+    {
+      "img": "menu",
+      "title": "Le menu",
+      "text": "Appuyez sur Gauche pour le menu : Recherche, Accueil, vos applis et consoles épinglées, puis Toutes les applis. Épinglez-les et réordonnez-les dans les réglages."
+    },
+    {
+      "img": "allapps",
+      "title": "Toutes les applis",
+      "text": "Toutes vos applis, triées dans l’ordre de l’accueil, de A à Z, par utilisation, par utilisation récente ou par installation récente."
+    },
+    {
+      "img": "settings",
+      "title": "Réglages",
+      "text": "Six petits groupes : Look (apparence), Home screen (écran d’accueil), Continue watching, Weather (météo), Screensaver (écran de veille) et This TV."
+    },
+    {
+      "img": "look",
+      "title": "Apparence",
+      "text": "Thème clair, sombre ou automatique. Vos propres fonds d’écran depuis votre téléphone, ou une nouvelle photo Unsplash aussi souvent que vous le voulez."
+    },
+    {
+      "img": "thistv",
+      "title": "Cette télé",
+      "text": "Le bouton Accueil, les mises à jour, un NIP pour verrouiller la disposition, et les deux interrupteurs qui remplacent les étapes adb."
+    }
+  ],
+  "features_h": "Ce qu’il fait",
+  "features_intro": "Koolest montre ce que vous utilisez vraiment. Pas de rangées commanditées, pas de compte, pas de pistage, et c’est une seule petite appli sans bibliothèque tierce.",
+  "features": [
+    {
+      "icon": "play",
+      "title": "« Continuer à regarder » qui fonctionne",
+      "text": "Tout ce que les applis signalent comme commencé, à partir de la liste À suivre d’Android TV et des chaînes de chaque appli. Les onglets du navigateur restent à l’écart."
+    },
+    {
+      "icon": "rows",
+      "title": "Des rangées tirées de vos applis",
+      "text": "YouTube, 30nama, Spotify et toute autre appli qui publie sur l’écran d’accueil de la télé. Les rangées vides ne s’affichent pas, et chacune peut être désactivée."
+    },
+    {
+      "icon": "gamepad",
+      "title": "Consoles et entrées",
+      "text": "Les appareils qui s’identifient par HDMI-CEC ont une tuile avec leur propre logo. En sélectionner un fait passer la télé à son entrée."
+    },
+    {
+      "icon": "sparkle",
+      "title": "Un design en verre",
+      "text": "Le menu flotte dans une capsule givrée, et l’horloge, la météo et les boutons partagent une ligne en haut. Les cartes sélectionnées grandissent et se soulèvent."
+    },
+    {
+      "icon": "home",
+      "title": "Le bouton Accueil, conservé",
+      "text": "Sur Google TV, Accueil ouvre Koolest même là où le lanceur du système ne peut pas être remplacé. Ou faites de Koolest le seul lanceur, à la télécommande."
+    },
+    {
+      "icon": "weather",
+      "title": "Météo et horloge",
+      "text": "L’heure et la date dans le coin et, si vous l’activez, la météo avec la température ressentie et votre ville."
+    },
+    {
+      "icon": "image",
+      "title": "Fonds d’écran et écran de veille",
+      "text": "Envoyez une photo depuis votre téléphone avec un code QR, ou recevez une nouvelle photo Unsplash selon un horaire. L’écran de veille Galerie montre des tableaux du domaine public."
+    },
+    {
+      "icon": "lock",
+      "title": "Un NIP pour la disposition",
+      "text": "Protégez les réglages et les changements de l’écran d’accueil par un NIP, pour que les petites mains ne réorganisent pas tout. Les applis s’ouvrent comme d’habitude."
+    },
+    {
+      "icon": "update",
+      "title": "Mises à jour depuis GitHub",
+      "text": "Koolest vérifie une fois par jour s’il y a une nouvelle version et l’installe quand vous le choisissez, dans Settings, This TV, Updates."
+    },
+    {
+      "icon": "speed",
+      "title": "Fluide sur le matériel des télés",
+      "text": "Les images se chargent juste avant que vous les atteigniez, et l’écran d’accueil dessine le moins de couches plein écran possible."
+    }
+  ],
+  "gallery_h": "Quand la télé se repose",
+  "gallery_text": "Choisissez Gallery dans Settings, Screensaver, et la télé affiche des paysages peints au 19<sup>e</sup> siècle par Church, Chichkine, Cropsey et Heade. Ils sont du domaine public, et ne se téléchargent que si vous choisissez cet écran de veille.",
+  "gallery_alt": "Les icebergs, un tableau de Frederic Edwin Church, affiché par l’écran de veille Galerie",
+  "gallery_caption": "L’écran de veille Galerie : Les icebergs, Frederic Edwin Church, 1861.",
+  "install_h": "Installer",
+  "install_intro": "Koolest n’est pas encore sur le Play Store : on l’installe à partir d’un fichier APK. Il fonctionne sur Android TV et Google TV avec Android 8.0 ou plus récent.",
+  "install_downloader_h": "Avec l’appli Downloader",
+  "install_downloader_1": "Installez <strong>Downloader</strong> d’AFTVnews depuis le Play Store de votre télé. Ouvrez-la et tapez cette adresse :",
+  "install_downloader_2": "Choisissez Installer quand on vous le demande. La première fois, Android vous demande d’autoriser Downloader à installer des applis.",
+  "install_usb_h": "Avec une clé USB",
+  "install_usb": "<a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases/latest/download/Koolest.apk\">Téléchargez Koolest.apk</a> sur un ordinateur, copiez-le sur une clé USB et ouvrez-le sur la télé avec un gestionnaire de fichiers.",
+  "install_adb_h": "Avec adb",
+  "install_adb": "Si vous utilisez déjà adb avec votre télé :",
+  "install_then": "Ouvrez ensuite <strong>Koolest TV Launcher</strong> dans vos applis. Ses réglages s’ouvrent au premier lancement, prêts pour la configuration.",
+  "copy": "Copier",
+  "copied": "Copié",
+  "setup_h": "Configurer",
+  "setup_intro": "Tout se trouve dans les réglages de Koolest, sous This TV. Seule la première étape est obligatoire. L’appli est en anglais pour l’instant : les noms des réglages sont donc indiqués en anglais.",
+  "steps": [
+    {
+      "title": "Activez le bouton Accueil",
+      "html": "<p>Choisissez <strong>Home button</strong>. Dans l’écran Accessibilité qui s’ouvre, activez <strong>Koolest: Home button</strong>. Autorisez l’accès aux listes de chaînes quand on vous le demande; les rangées en ont besoin.</p><p>Android affiche le même avertissement pour tous les services d’accessibilité. Celui de Koolest écoute seulement la touche Accueil et l’apparition du lanceur du système. Il ne peut pas lire l’écran.</p>"
+    },
+    {
+      "title": "Gardez le bouton Accueil actif",
+      "html": "<p>Après un redémarrage, une mise à jour ou une partie sur console, Android peut arrêter le service du bouton Accueil. <strong>Keep Home working</strong> donne à Koolest la permission de le réactiver tout seul.</p>"
+    },
+    {
+      "title": "Faites de Koolest le seul lanceur, si vous le voulez",
+      "html": "<p>L’écran d’accueil de Google TV passe toujours avant les autres lanceurs. <strong>Only launcher</strong> le désactive, pour qu’Accueil mène toujours à Koolest. Désactivez l’interrupteur pour retrouver Google TV. Rien n’est désinstallé.</p>"
+    }
+  ],
+  "callout": "<strong>Les étapes 2 et 3 passent par le débogage de la télé.</strong> La première fois, Koolest montre comment l’activer : appuyez sept fois sur OK sur la version d’Android TV OS dans Paramètres, À propos, puis activez le débogage USB dans les Options pour les développeurs. Quand la télé le demande, cochez Toujours autoriser et choisissez Autoriser. Vous pouvez ensuite désactiver le débogage; les changements restent.",
+  "thistv_alt": "Réglages de Koolest, Cette télé : Home button activé, Keep Home working fait, Default home oui, Only launcher activé, PIN lock désactivé, Updates 2.1.1 à jour",
+  "thistv_caption": "This TV, configuré : Home button activé, Keep Home working fait, Only launcher activé.",
+  "allow_alt": "La demande de la télé : Allow USB debugging? avec Always allow from this computer coché, et les boutons Allow et Cancel",
+  "allow_caption": "La télé ne le demande qu’une fois. Cochez Toujours autoriser, puis choisissez Autoriser.",
+  "setup_note": "Avec Only launcher activé, maintenir Accueil n’ouvre plus le tableau de bord de Google TV, et son panneau de réglages rapides et ses profils disparaissent aussi. L’appli Paramètres complète d’Android fonctionne toujours.",
+  "using_h": "Utiliser Koolest",
+  "using_col1": "Pour",
+  "using_col2": "Allez dans",
+  "using": [
+    [
+      "Activer ou désactiver des rangées",
+      "Settings, Home screen, Rows"
+    ],
+    [
+      "Épingler, retirer ou réordonner les applis du menu",
+      "Settings, Home screen, Menu apps"
+    ],
+    [
+      "Réorganiser la rangée Applis",
+      "Maintenez OK sur une appli, ou Settings, Home screen, Rearrange apps"
+    ],
+    [
+      "Masquer un élément de Continue watching",
+      "Maintenez OK sur sa carte"
+    ],
+    [
+      "Choisir les applis de Continue watching",
+      "Settings, Continue watching, Apps"
+    ],
+    [
+      "Trier All apps",
+      "Ouvrez All apps et choisissez un tri en haut"
+    ],
+    [
+      "Changer le thème ou le fond d’écran",
+      "Settings, Look"
+    ],
+    [
+      "Verrouiller la disposition par NIP",
+      "Settings, This TV, PIN lock"
+    ],
+    [
+      "Revenir au début de l’écran d’accueil",
+      "Appuyez sur Retour : d’abord au premier élément de la rangée, puis au menu, puis en haut"
+    ]
+  ],
+  "help_h": "Aide",
+  "help_intro": "Quelque chose ne fonctionne pas? Ces réponses couvrent l’essentiel. Sinon, <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/issues/new/choose\">ouvrez un ticket</a> en indiquant votre modèle de télé.",
+  "faq": [
+    {
+      "q": "Accueil ouvre Google TV après un redémarrage, une mise à jour ou une console",
+      "a": "<p>Choisissez <strong>Keep Home working</strong> dans Settings, This TV. Puis désactivez et réactivez <strong>Home button</strong>. Sur les télés TCL, cela permet aussi à Koolest de passer le blocage de démarrage automatique de TCL.</p>"
+    },
+    {
+      "q": "Le bouton Accueil refuse de s’activer (Android 13 et plus récent)",
+      "a": "<p>Android bloque d’abord l’accessibilité pour les applis installées hors du Play Store. Ouvrez Paramètres Android, Applis, Koolest TV Launcher, choisissez <strong>Autoriser les paramètres restreints</strong> dans le menu, puis réessayez.</p>"
+    },
+    {
+      "q": "Keep Home working me demande d’activer le débogage",
+      "a": "<p>Koolest utilise le débogage réseau de la télé sur le port 5555. Activez les Options pour les développeurs (appuyez sept fois sur OK sur le numéro de version dans Paramètres, À propos), puis le débogage USB, et le débogage réseau si votre télé le propose. Les télés qui n’offrent que le débogage sans fil avec code d’association d’Android 11 ne sont pas encore prises en charge; utilisez plutôt les commandes adb du <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher#recommended-keep-the-home-button-working-adb\">README</a>.</p>"
+    },
+    {
+      "q": "Les rangées ou Continuer à regarder sont vides",
+      "a": "<p>Autorisez l’accès aux listes de chaînes. Ensuite, une appli n’apparaît que si elle signale son contenu à la télé. La rangée de Google TV utilise aussi l’historique de votre compte Google, que les autres applis ne peuvent pas lire.</p>"
+    },
+    {
+      "q": "Pourquoi un seul compte YouTube?",
+      "a": "<p>YouTube publie ses rangées d’accueil seulement pour le compte actif dans l’appli YouTube. Changez de compte dans YouTube et la rangée de Koolest suit.</p>"
+    },
+    {
+      "q": "Comment utiliser mon propre fond d’écran?",
+      "a": "<p>Dans Settings, Look, ouvrez le fond d’écran d’un thème et choisissez <strong>Add from phone</strong>. Lisez le code QR avec votre téléphone, sur le même Wi-Fi que la télé, et envoyez une photo. Ou copiez des fichiers avec adb :</p>{{code:adb push my-wallpaper.jpg /sdcard/Android/data/dev.koolest/files/wallpapers/}}"
+    },
+    {
+      "q": "Comment retrouver Google TV?",
+      "a": "<p>Désactivez <strong>Only launcher</strong> dans Settings, This TV. Depuis un ordinateur, <code>adb shell pm enable com.google.android.apps.tv.launcherx</code> fait la même chose. Une réinitialisation aux paramètres d’usine le ramène aussi.</p>"
+    }
+  ],
+  "privacy_h": "Confidentialité",
+  "privacy_intro": "Pas de statistiques, pas de publicité, pas de compte.",
+  "privacy_lead": "Koolest se connecte à Internet seulement pour :",
+  "privacy": [
+    "charger les images des cartes de l’écran d’accueil",
+    "vérifier sur GitHub s’il y a une nouvelle version une fois par jour, et la télécharger quand vous le choisissez",
+    "télécharger les tableaux de la Galerie, seulement si vous choisissez cet écran de veille",
+    "télécharger une photo de Lorem Picsum, seulement si vous choisissez les photos Unsplash",
+    "obtenir la météo, seulement si vous l’activez, auprès d’ipwho.is et d’Open-Meteo"
+  ],
+  "privacy_after": "L’option Add from phone ouvre une petite page d’envoi sur la télé elle-même, accessible seulement sur votre réseau domestique et seulement pendant que cet écran est ouvert.",
+  "footer_about": "Logiciel libre sous <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">licence GNU GPL v3.0</a>. Basé sur <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> d’aradhyas8, avec un langage visuel inspiré de l’appli télé de 30nama.",
+  "footer_project": "Projet",
+  "footer_links": [
+    [
+      "Code source",
+      "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher"
+    ],
+    [
+      "Versions",
+      "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases"
+    ],
+    [
+      "Contribuer",
+      "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/CONTRIBUTING.md"
+    ],
+    [
+      "Signaler un problème",
+      "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/issues"
+    ]
+  ],
+  "footer_credits": "Crédits",
+  "credits": [
+    "Police : <a href=\"https://github.com/rastikerdar/vazirmatn\">Vazirmatn</a> de Saber Rastikerdar",
+    "Fond d’écran : « Canada » de Thomas Curryer, <a href=\"https://unsplash.com/@tawc20\">Unsplash</a>",
+    "Tableaux : domaine public, via Wikimedia Commons",
+    "Les logos sont des marques de leurs propriétaires"
+  ]
+}

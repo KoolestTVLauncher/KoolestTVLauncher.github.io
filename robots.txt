@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://koolesttvlauncher.github.io/sitemap.xml

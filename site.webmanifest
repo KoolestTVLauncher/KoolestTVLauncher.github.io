@@ -1,0 +1,3 @@
+{"name": "Koolest TV Launcher", "short_name": "Koolest", "start_url": "/", "display": "browser",
+ "background_color": "#131a2c", "theme_color": "#131a2c",
+ "icons": [{"src": "/img/icon-180.png", "sizes": "180x180", "type": "image/png"}, {"src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png"}]}
