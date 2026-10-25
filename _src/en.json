@@ -25,18 +25,20 @@
   "lang_suggest": "This site is also in French.",
   "lang_suggest_go": "Lire en français",
   "lang_suggest_close": "Stay in English",
-
   "h1": "Your TV’s home screen, without the ads.",
   "lede": "Koolest is a free, open-source launcher for Android TV and Google TV. Your apps, your shows and your consoles, in a glass design made for the remote.",
   "cta_download": "Download Koolest.apk",
   "cta_install": "How to install",
-  "facts": ["Free and open source", "No ads, no tracking", "Under 1 MB"],
+  "facts": [
+    "Free and open source",
+    "No ads, no tracking",
+    "Under 1 MB"
+  ],
   "version_note": "Version <span data-version>2.1.1</span>, for Android 8.0 and newer.",
   "video_label": "Koolest on a TV: browsing the rows, opening the menu and All apps, then settings",
   "video_caption": "Recorded on a TCL Google TV with the remote. Only the pauses were cut.",
   "play": "Play the video",
   "pause": "Pause the video",
-
   "tour_h": "Look around",
   "tour_intro": "This is how the home screen works, too: a row along the bottom, and a large picture of whatever you’re on.",
   "tour_hint": "Use <kbd>←</kbd> <kbd>→</kbd> on your keyboard, like the remote. Select the picture to enlarge it.",
@@ -46,39 +48,120 @@
   "enlarge": "Enlarge",
   "close": "Close",
   "tour": [
-    {"img": "home", "title": "Continue watching", "text": "Everything you’re partway through, from every app that reports to the TV. The apps you use most come first."},
-    {"img": "billboard", "title": "The billboard", "text": "Move along a row and the background crossfades to the show you’re on, with how much is left."},
-    {"img": "apps", "title": "Apps", "text": "Your apps as wide logo tiles. Hold OK on one to move it, and choose which apps show and in what order."},
-    {"img": "consoles", "title": "Consoles and inputs", "text": "PlayStation, Xbox, Switch, Steam Deck, Apple TV and more get a tile with their own logo. Select one to switch to its input."},
-    {"img": "youtube", "title": "YouTube", "text": "Rows from the apps you use: YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi and any app that publishes to the home screen."},
-    {"img": "spotify", "title": "Spotify", "text": "Spotify’s podcasts and shows get a row of their own. Any row can be turned off in settings."},
-    {"img": "menu", "title": "The menu", "text": "Press Left for the menu: Search, Home, your pinned apps and consoles, then All apps. Pin and reorder them in settings."},
-    {"img": "allapps", "title": "All apps", "text": "Every app, sorted in your home order, A to Z, most used, recently used or recently installed."},
-    {"img": "settings", "title": "Settings", "text": "Six short groups: Look, Home screen, Continue watching, Weather, Screensaver and This TV."},
-    {"img": "look", "title": "Look", "text": "Light, dark or automatic theme. Your own wallpapers from your phone, or a new Unsplash photo as often as you like."},
-    {"img": "thistv", "title": "This TV", "text": "The Home button, updates, a PIN lock for the layout, and the two setup switches that replace the adb steps."}
+    {
+      "img": "home",
+      "title": "Continue watching",
+      "text": "Everything you’re partway through, from every app that reports to the TV. The apps you use most come first."
+    },
+    {
+      "img": "billboard",
+      "title": "The billboard",
+      "text": "Move along a row and the background crossfades to the show you’re on, with how much is left."
+    },
+    {
+      "img": "apps",
+      "title": "Apps",
+      "text": "Your apps as wide logo tiles. Hold OK on one to move it, and choose which apps show and in what order."
+    },
+    {
+      "img": "consoles",
+      "title": "Consoles and inputs",
+      "text": "PlayStation, Xbox, Switch, Steam Deck, Apple TV and more get a tile with their own logo. Select one to switch to its input."
+    },
+    {
+      "img": "youtube",
+      "title": "YouTube",
+      "text": "Rows from the apps you use: YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi and any app that publishes to the home screen."
+    },
+    {
+      "img": "spotify",
+      "title": "Spotify",
+      "text": "Spotify’s podcasts and shows get a row of their own. Any row can be turned off in settings."
+    },
+    {
+      "img": "menu",
+      "title": "The menu",
+      "text": "Press Left for the menu: Search, Home, your pinned apps and consoles, then All apps. Pin and reorder them in settings."
+    },
+    {
+      "img": "allapps",
+      "title": "All apps",
+      "text": "Every app, sorted in your home order, A to Z, most used, recently used or recently installed."
+    },
+    {
+      "img": "settings",
+      "title": "Settings",
+      "text": "Six short groups: Look, Home screen, Continue watching, Weather, Screensaver and This TV."
+    },
+    {
+      "img": "look",
+      "title": "Look",
+      "text": "Light, dark or automatic theme. Your own wallpapers from your phone, or a new Unsplash photo as often as you like."
+    },
+    {
+      "img": "thistv",
+      "title": "This TV",
+      "text": "The Home button, updates, a PIN lock for the layout, and the two setup switches that replace the adb steps."
+    }
   ],
-
   "features_h": "What it does",
   "features_intro": "Koolest shows what you actually use. There are no sponsored rows, no account and no tracking, and it’s a single small app with no third-party libraries.",
   "features": [
-    {"icon": "play", "title": "Continue watching that works", "text": "Everything apps report as partway watched, from Android TV’s Watch Next list and each app’s own channels. Browser tabs stay out."},
-    {"icon": "rows", "title": "Rows from your apps", "text": "YouTube, 30nama, Spotify and every other app that publishes to the TV’s home screen. Empty rows don’t show, and any row can be turned off."},
-    {"icon": "gamepad", "title": "Consoles and inputs", "text": "Devices that name themselves over HDMI-CEC get a tile with their own logo. Selecting one switches the TV to that input."},
-    {"icon": "sparkle", "title": "A glass design", "text": "The menu floats in a frosted capsule, and the clock, weather and buttons share one line at the top. Focused cards grow and lift."},
-    {"icon": "home", "title": "The Home button, kept", "text": "On Google TV, Home opens Koolest even where the system launcher can’t be replaced. Or make Koolest the only launcher, from the remote."},
-    {"icon": "weather", "title": "Weather and a clock", "text": "The time and date in the corner and, if you turn it on, the weather with what it feels like and your city."},
-    {"icon": "image", "title": "Wallpapers and a screensaver", "text": "Upload a photo from your phone with a QR code, or get a new Unsplash photo on a schedule. The Gallery screensaver shows public-domain paintings."},
-    {"icon": "lock", "title": "A PIN for the layout", "text": "Lock settings and home screen changes behind a PIN, so small hands can’t rearrange everything. Apps still open as usual."},
-    {"icon": "update", "title": "Updates from GitHub", "text": "Koolest checks for a new version once a day and installs it when you choose, from Settings, This TV, Updates."},
-    {"icon": "speed", "title": "Smooth on TV hardware", "text": "Pictures load just ahead of where you’re browsing, and the home screen draws as few full-screen layers as it can."}
+    {
+      "icon": "play",
+      "title": "Continue watching that works",
+      "text": "Everything apps report as partway watched, from Android TV’s Watch Next list and each app’s own channels. Browser tabs stay out."
+    },
+    {
+      "icon": "rows",
+      "title": "Rows from your apps",
+      "text": "YouTube, 30nama, Spotify and every other app that publishes to the TV’s home screen. Empty rows don’t show, and any row can be turned off."
+    },
+    {
+      "icon": "gamepad",
+      "title": "Consoles and inputs",
+      "text": "Devices that name themselves over HDMI-CEC get a tile with their own logo. Selecting one switches the TV to that input."
+    },
+    {
+      "icon": "sparkle",
+      "title": "A glass design",
+      "text": "The menu floats in a frosted capsule, and the clock, weather and buttons share one line at the top. Focused cards grow and lift."
+    },
+    {
+      "icon": "home",
+      "title": "The Home button, kept",
+      "text": "On Google TV, Home opens Koolest even where the system launcher can’t be replaced. Or make Koolest the only launcher, from the remote."
+    },
+    {
+      "icon": "weather",
+      "title": "Weather and a clock",
+      "text": "The time and date in the corner and, if you turn it on, the weather with what it feels like and your city."
+    },
+    {
+      "icon": "image",
+      "title": "Wallpapers and a screensaver",
+      "text": "Upload a photo from your phone with a QR code, or get a new Unsplash photo on a schedule. The Gallery screensaver shows public-domain paintings."
+    },
+    {
+      "icon": "lock",
+      "title": "A PIN for the layout",
+      "text": "Lock settings and home screen changes behind a PIN, so small hands can’t rearrange everything. Apps still open as usual."
+    },
+    {
+      "icon": "update",
+      "title": "Updates from GitHub",
+      "text": "Koolest checks for a new version once a day and installs it when you choose, from Settings, This TV, Updates."
+    },
+    {
+      "icon": "speed",
+      "title": "Smooth on TV hardware",
+      "text": "Pictures load just ahead of where you’re browsing, and the home screen draws as few full-screen layers as it can."
+    }
   ],
-
   "gallery_h": "When the TV rests",
   "gallery_text": "Choose Gallery in Settings, Screensaver, and the TV shows 19th-century landscape paintings by Church, Shishkin, Cropsey and Heade. They’re in the public domain, and they download only if you pick this screensaver.",
   "gallery_alt": "The Icebergs, a painting by Frederic Edwin Church, as shown by the Gallery screensaver",
   "gallery_caption": "The Gallery screensaver: The Icebergs, Frederic Edwin Church, 1861.",
-
   "install_h": "Install",
   "install_intro": "Koolest isn’t on the Play Store yet, so it’s installed as an APK file. It works on Android TV and Google TV with Android 8.0 or newer.",
   "install_downloader_h": "With the Downloader app",
@@ -91,13 +174,21 @@
   "install_then": "Then open <strong>Koolest TV Launcher</strong> from your apps. Its settings open on the first launch, ready for setup.",
   "copy": "Copy",
   "copied": "Copied",
-
   "setup_h": "Set up",
   "setup_intro": "Everything is in Koolest settings, This TV. Only the first step is required.",
   "steps": [
-    {"title": "Turn on the Home button", "html": "<p>Choose <strong>Home button</strong>. In the Accessibility screen that opens, turn on <strong>Koolest: Home button</strong>. Allow the TV listings permission when asked; the rows need it.</p><p>Android shows the same warning for every accessibility service. Koolest’s only listens for the Home key and for the system launcher appearing. It can’t read the screen.</p>"},
-    {"title": "Keep Home working", "html": "<p>After a reboot, an update or a console session, Android can stop the Home button service. <strong>Keep Home working</strong> gives Koolest permission to switch it back on by itself.</p>"},
-    {"title": "Make Koolest the only launcher, if you like", "html": "<p>Google TV’s own home screen always outranks other launchers. <strong>Only launcher</strong> turns it off, so Home always means Koolest. Switch it off to bring Google TV back. Nothing is uninstalled.</p>"}
+    {
+      "title": "Turn on the Home button",
+      "html": "<p>Choose <strong>Home button</strong>. In the Accessibility screen that opens, turn on <strong>Koolest: Home button</strong>. Allow the TV listings permission when asked; the rows need it.</p><p>Android shows the same warning for every accessibility service. Koolest’s only listens for the Home key and for the system launcher appearing. It can’t read the screen.</p>"
+    },
+    {
+      "title": "Keep Home working",
+      "html": "<p>After a reboot, an update or a console session, Android can stop the Home button service. <strong>Keep Home working</strong> gives Koolest permission to switch it back on by itself.</p>"
+    },
+    {
+      "title": "Make Koolest the only launcher, if you like",
+      "html": "<p>Google TV’s own home screen always outranks other launchers. <strong>Only launcher</strong> turns it off, so Home always means Koolest. Switch it off to bring Google TV back. Nothing is uninstalled.</p>"
+    }
   ],
   "callout": "<strong>Steps 2 and 3 use the TV’s debugging.</strong> The first time, Koolest shows how to turn it on: press OK seven times on the Android TV OS build in Settings, About, then turn on USB debugging in Developer options. When the TV asks, tick Always allow and choose Allow. You can turn debugging off again afterwards; the changes stay.",
   "thistv_alt": "Koolest settings, This TV: Home button on, Keep Home working done, Default home yes, Only launcher on, PIN lock off, Updates 2.1.1 latest",
@@ -105,34 +196,79 @@
   "allow_alt": "The TV’s prompt: Allow USB debugging? with Always allow from this computer ticked, and Allow and Cancel buttons",
   "allow_caption": "The TV asks once. Tick Always allow, then choose Allow.",
   "setup_note": "With Only launcher on, holding Home no longer opens the Google TV dashboard, and its quick-settings panel and profiles go with it. Android’s full Settings app still works.",
-
   "using_h": "Using Koolest",
   "using_col1": "To",
   "using_col2": "Go to",
   "using": [
-    ["Turn home rows on or off", "Settings, Home screen, Rows"],
-    ["Pin, remove or reorder apps in the menu", "Settings, Home screen, Menu apps"],
-    ["Rearrange the Apps row", "Hold OK on an app, or Settings, Home screen, Rearrange apps"],
-    ["Hide something from Continue watching", "Hold OK on its card"],
-    ["Choose which apps feed Continue watching", "Settings, Continue watching, Apps"],
-    ["Sort All apps", "Open All apps and pick a sort at the top"],
-    ["Change the theme or wallpaper", "Settings, Look"],
-    ["Lock the layout with a PIN", "Settings, This TV, PIN lock"],
-    ["Get back to the start of the home screen", "Press Back: first to the row’s first item, then to the menu, then to the top"]
+    [
+      "Turn home rows on or off",
+      "Settings, Home screen, Rows"
+    ],
+    [
+      "Pin, remove or reorder apps in the menu",
+      "Settings, Home screen, Menu apps"
+    ],
+    [
+      "Rearrange the Apps row",
+      "Hold OK on an app, or Settings, Home screen, Rearrange apps"
+    ],
+    [
+      "Hide something from Continue watching",
+      "Hold OK on its card"
+    ],
+    [
+      "Choose which apps feed Continue watching",
+      "Settings, Continue watching, Apps"
+    ],
+    [
+      "Sort All apps",
+      "Open All apps and pick a sort at the top"
+    ],
+    [
+      "Change the theme or wallpaper",
+      "Settings, Look"
+    ],
+    [
+      "Lock the layout with a PIN",
+      "Settings, This TV, PIN lock"
+    ],
+    [
+      "Get back to the start of the home screen",
+      "Press Back: first to the row’s first item, then to the menu, then to the top"
+    ]
   ],
-
   "help_h": "Help",
   "help_intro": "Something not working? These cover most of it. If not, <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/issues/new/choose\">open an issue</a> and say which TV you have.",
   "faq": [
-    {"q": "Home opens Google TV after a reboot, an update or a console", "a": "<p>Choose <strong>Keep Home working</strong> in Settings, This TV. Then switch <strong>Home button</strong> off and on again. On TCL TVs this also lets Koolest past TCL’s own auto-start guard.</p>"},
-    {"q": "The Home button setting won’t turn on (Android 13 and newer)", "a": "<p>Android blocks sideloaded apps from Accessibility at first. Open Android Settings, Apps, Koolest TV Launcher, choose <strong>Allow restricted settings</strong> from the menu, then try again.</p>"},
-    {"q": "Keep Home working says to turn on debugging", "a": "<p>Koolest uses the TV’s network debugging on port 5555. Turn on Developer options (press OK seven times on the build number in Settings, About), then USB debugging, and Network debugging if your TV lists it. TVs that only offer Android 11’s pairing-code Wireless debugging aren’t supported yet; use the adb lines in the <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher#recommended-keep-the-home-button-working-adb\">README</a> instead.</p>"},
-    {"q": "Rows or Continue watching are empty", "a": "<p>Allow the TV listings permission. After that, an app only shows up if it reports to the TV. Google TV’s own row also uses your Google account’s history, which other apps can’t read.</p>"},
-    {"q": "Why only one YouTube account?", "a": "<p>YouTube publishes its home-screen rows for the account that’s active in the YouTube app only. Switch accounts in YouTube and Koolest’s row follows.</p>"},
-    {"q": "How do I use my own wallpaper?", "a": "<p>In Settings, Look, open a theme’s wallpaper and choose <strong>Add from phone</strong>. Scan the QR code with your phone, on the same Wi-Fi as the TV, and upload a photo. Or copy files over with adb:</p>{{code:adb push my-wallpaper.jpg /sdcard/Android/data/dev.koolest/files/wallpapers/}}"},
-    {"q": "How do I bring Google TV back?", "a": "<p>Switch off <strong>Only launcher</strong> in Settings, This TV. From a computer, <code>adb shell pm enable com.google.android.apps.tv.launcherx</code> does the same. A factory reset also brings it back.</p>"}
+    {
+      "q": "Home opens Google TV after a reboot, an update or a console",
+      "a": "<p>Choose <strong>Keep Home working</strong> in Settings, This TV. Then switch <strong>Home button</strong> off and on again. On TCL TVs this also lets Koolest past TCL’s own auto-start guard.</p>"
+    },
+    {
+      "q": "The Home button setting won’t turn on (Android 13 and newer)",
+      "a": "<p>Android blocks sideloaded apps from Accessibility at first. Open Android Settings, Apps, Koolest TV Launcher, choose <strong>Allow restricted settings</strong> from the menu, then try again.</p>"
+    },
+    {
+      "q": "Keep Home working says to turn on debugging",
+      "a": "<p>Koolest uses the TV’s network debugging on port 5555. Turn on Developer options (press OK seven times on the build number in Settings, About), then USB debugging, and Network debugging if your TV lists it. TVs that only offer Android 11’s pairing-code Wireless debugging aren’t supported yet; use the adb lines in the <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher#recommended-keep-the-home-button-working-adb\">README</a> instead.</p>"
+    },
+    {
+      "q": "Rows or Continue watching are empty",
+      "a": "<p>Allow the TV listings permission. After that, an app only shows up if it reports to the TV. Google TV’s own row also uses your Google account’s history, which other apps can’t read.</p>"
+    },
+    {
+      "q": "Why only one YouTube account?",
+      "a": "<p>YouTube publishes its home-screen rows for the account that’s active in the YouTube app only. Switch accounts in YouTube and Koolest’s row follows.</p>"
+    },
+    {
+      "q": "How do I use my own wallpaper?",
+      "a": "<p>In Settings, Look, open a theme’s wallpaper and choose <strong>Add from phone</strong>. Scan the QR code with your phone, on the same Wi-Fi as the TV, and upload a photo. Or copy files over with adb:</p>{{code:adb push my-wallpaper.jpg /sdcard/Android/data/dev.koolest/files/wallpapers/}}"
+    },
+    {
+      "q": "How do I bring Google TV back?",
+      "a": "<p>Switch off <strong>Only launcher</strong> in Settings, This TV. From a computer, <code>adb shell pm enable com.google.android.apps.tv.launcherx</code> does the same. A factory reset also brings it back.</p>"
+    }
   ],
-
   "privacy_h": "Privacy",
   "privacy_intro": "No analytics, no ads, no account.",
   "privacy_lead": "Koolest only connects to the internet to:",
@@ -144,14 +280,25 @@
     "fetch the weather, only if you turn it on, from ipwho.is and Open-Meteo"
   ],
   "privacy_after": "Add from phone runs a small upload page on the TV itself, reachable only on your home network and only while that screen is open.",
-
-  "footer_about": "Free software under the <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">GNU GPL v3.0</a>. Based on <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> by aradhyas8, with a design language from the 30nama TV app.",
+  "footer_about": "Made by <a href=\"https://github.com/benymaxparsa\">Parsa Kamalipour</a>. Free software under the <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">GNU GPL v3.0</a>. Based on <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> by aradhyas8, with a design language from the 30nama TV app.",
   "footer_project": "Project",
   "footer_links": [
-    ["Source code", "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher"],
-    ["Releases", "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases"],
-    ["Contributing", "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/CONTRIBUTING.md"],
-    ["Report a problem", "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/issues"]
+    [
+      "Source code",
+      "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher"
+    ],
+    [
+      "Releases",
+      "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases"
+    ],
+    [
+      "Contributing",
+      "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/CONTRIBUTING.md"
+    ],
+    [
+      "Report a problem",
+      "https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/issues"
+    ]
   ],
   "footer_credits": "Credits",
   "credits": [
