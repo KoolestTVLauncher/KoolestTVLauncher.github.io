@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Koolest TV Launcher</title>
+<meta name="description" content="A free, open-source home screen for Android TV and Google TV. Your apps, your shows and your consoles, with no ads and no tracking.">
+<meta property="og:title" content="Koolest TV Launcher">
+<meta property="og:description" content="A free, open-source home screen for Android TV and Google TV, with no ads and no tracking.">
+<meta property="og:image" content="https://koolesttvlauncher.github.io/img/home.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#131a2c">
+<link rel="icon" href="img/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: dark;
+  --night: #131a2c;     /* the default wallpaper's dusk sky */
+  --dusk: #1d2640;      /* raised surfaces */
+  --line: #2c3654;
+  --ink: #f2f3f7;
+  --muted: #a9b0c6;
+  --glow: #e7a464;      /* the wallpaper's sunset, used only as light */
+  --red: #f0454a;       /* Koolest's accent: progress bars, switches, the one primary button */
+  --glass: rgba(255, 255, 255, .07);
+  --glass-edge: rgba(255, 255, 255, .14);
+  --radius: 14px;
+  --col: 1240px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--night);
+  color: var(--ink);
+  font: 400 18px/1.6 Vazirmatn, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+img, video { display: block; max-width: 100%; height: auto; }
+a { color: var(--ink); text-decoration-color: rgba(242, 243, 247, .4); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--ink); }
+:focus-visible { outline: 3px solid #fff; outline-offset: 3px; border-radius: 8px; }
+code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .86em; }
+code { background: var(--glass); padding: .1em .4em; border-radius: 6px; }
+pre { background: #0f1424; border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; overflow-x: auto; line-height: 1.5; }
+pre code { background: none; padding: 0; }
+.wrap { max-width: var(--col); margin: 0 auto; padding: 0 24px; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 16px; z-index: 10; background: #fff; color: #000; padding: 8px 12px; }
+
+/* Top bar: the same glass capsule as Koolest's clock and weather */
+.bar {
+  position: sticky; top: 12px; z-index: 5;
+  margin: 12px auto 0; max-width: calc(var(--col) - 48px);
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 8px 8px 18px;
+  background: rgba(19, 26, 44, .72);
+  backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid var(--glass-edge); border-radius: 999px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; text-decoration: none; margin-right: auto; }
+.brand img { width: 28px; height: 28px; }
+.bar nav { display: flex; gap: 2px; flex-wrap: wrap; }
+.bar nav a { text-decoration: none; color: var(--muted); padding: 6px 14px; border-radius: 999px; font-size: 16px; }
+.bar nav a:hover, .bar nav a:focus-visible { color: #0d1120; background: #fff; outline: none; }
+@media (max-width: 760px) { .bar nav a.opt { display: none; } .bar { margin: 12px 16px 0; } }
+
+/* Hero */
+.hero { position: relative; padding: 72px 0 40px; overflow: hidden; }
+.hero::before { /* sunset light behind the TV, as on the wallpaper */
+  content: ""; position: absolute; inset: 38% -10% -20%; z-index: -1;
+  background: radial-gradient(60% 45% at 50% 40%, rgba(231, 164, 100, .32), transparent 70%);
+}
+h1 { font-size: clamp(44px, 7.4vw, 92px); line-height: .98; font-weight: 800; letter-spacing: -.025em; margin: 0 0 22px; max-width: 13ch; }
+.lede { font-size: clamp(19px, 2.1vw, 23px); color: var(--muted); max-width: 40ch; margin: 0 0 30px; font-weight: 300; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 700 17px/1 Vazirmatn, sans-serif; text-decoration: none;
+  padding: 15px 22px; border-radius: 999px; border: 1px solid var(--glass-edge);
+  background: var(--glass); color: var(--ink);
+  transition: transform .15s ease, background .15s ease;
+}
+.btn:hover { background: rgba(255, 255, 255, .14); }
+.btn.primary { background: var(--red); border-color: transparent; }
+.btn.primary:hover { background: #ff5459; }
+.btn:active { transform: scale(.97); }
+.btn svg { width: 20px; height: 20px; }
+.note { color: var(--muted); font-size: 15px; margin: 14px 0 0; }
+
+.tv { margin: 56px auto 0; max-width: 1040px; }
+@media (min-width: 1000px) {
+  .hero { padding-top: 64px; }
+  .hero .wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 8fr); gap: 56px; align-items: center; }
+  .hero h1 { font-size: clamp(48px, 4.6vw, 72px); }
+  .hero .lede { font-size: 20px; }
+  .tv { margin: 0; }
+}
+.screen {
+  position: relative; border-radius: 18px; overflow: hidden;
+  background: #000; border: 10px solid #090c15;
+  box-shadow: 0 0 0 1px var(--glass-edge), 0 40px 120px -30px rgba(231, 164, 100, .35);
+  aspect-ratio: 16 / 9;
+}
+.screen video { width: 100%; height: 100%; object-fit: cover; }
+.stand { width: 26%; height: 10px; margin: 0 auto; background: linear-gradient(#0b0e19, #161c30); border-radius: 0 0 10px 10px; }
+.play {
+  position: absolute; right: 14px; bottom: 14px;
+  width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--glass-edge);
+  background: rgba(0, 0, 0, .45); color: #fff; cursor: pointer;
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  display: grid; place-items: center;
+}
+.play svg { width: 18px; height: 18px; }
+.tv figcaption { text-align: center; color: var(--muted); font-size: 15px; margin-top: 18px; }
+
+/* Sections */
+section { padding: 96px 0 0; }
+h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.05; font-weight: 800; letter-spacing: -.02em; margin: 0 0 14px; }
+h3 { font-size: 21px; line-height: 1.3; margin: 0 0 6px; font-weight: 700; }
+.intro { color: var(--muted); max-width: 58ch; margin: 0 0 40px; font-size: 19px; }
+p { margin: 0 0 14px; }
+
+/* The tour: a billboard and a row, the way Koolest's home screen works */
+.billboard {
+  position: relative; border-radius: var(--radius); overflow: hidden;
+  aspect-ratio: 16 / 9; background: var(--dusk);
+  border: 1px solid var(--glass-edge);
+}
+.billboard img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .35s ease; }
+.billboard img.out { opacity: 0; }
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: end; }
+.say { padding-bottom: 6px; }
+.say h3 { margin-bottom: 10px !important; }
+.say h3 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; margin: 0; }
+.say p { color: var(--muted); margin: 0; max-width: 60ch; }
+@media (max-width: 900px) { .stage { grid-template-columns: 1fr; gap: 18px; } .say { min-height: 120px; } }
+.row {
+  display: flex; gap: 14px; overflow-x: auto; padding: 20px 6px 16px; margin: 0 -6px;
+  scroll-snap-type: x proximity; scrollbar-width: thin;
+}
+.row button {
+  flex: 0 0 auto; width: 210px; padding: 0; border: 0; background: none; color: var(--muted);
+  font: 500 15px/1.3 Vazirmatn, sans-serif; text-align: left; cursor: pointer;
+  scroll-snap-align: start;
+}
+.row button img {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px;
+  outline: 3px solid transparent; outline-offset: 2px;
+  transition: transform .2s ease, outline-color .2s ease;
+}
+.row button span { display: block; margin-top: 10px; }
+.row button[aria-selected="true"] { color: var(--ink); }
+.row button[aria-selected="true"] img { outline-color: #fff; transform: scale(1.04); }
+.row button:focus-visible { outline: none; }
+.row button:focus-visible img { outline-color: #fff; transform: scale(1.06); }
+.hint { color: var(--muted); font-size: 15px; margin: 0; }
+.hint kbd { font: 600 13px Vazirmatn, sans-serif; border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; background: var(--glass); }
+
+/* Features: plain text in two columns, no cards */
+.features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 56px; margin: 0; padding: 0; list-style: none; }
+.features li { border-top: 1px solid var(--line); padding-top: 18px; }
+.features p { color: var(--muted); margin: 0; }
+@media (max-width: 760px) { .features { grid-template-columns: 1fr; } }
+
+.split { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: start; }
+@media (max-width: 860px) { .split { grid-template-columns: 1fr; } }
+.shot { border-radius: var(--radius); border: 1px solid var(--glass-edge); overflow: hidden; }
+.shot + figcaption, figure figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; }
+figure { margin: 0; }
+
+/* Steps: these really are sequences */
+.steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+.steps > li { counter-increment: step; position: relative; padding: 0 0 26px 58px; }
+.steps > li::before {
+  content: counter(step); position: absolute; left: 0; top: -2px;
+  width: 38px; height: 38px; border-radius: 50%;
+  display: grid; place-items: center; font-weight: 800; font-size: 17px;
+  background: var(--glass); border: 1px solid var(--glass-edge);
+}
+.steps > li:not(:last-child)::after { content: ""; position: absolute; left: 18px; top: 42px; bottom: 6px; width: 1px; background: var(--line); }
+.steps p { color: var(--muted); margin: 0 0 8px; }
+.steps h3 { padding-top: 4px; }
+
+.ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 8px; }
+.ways > div { border-top: 1px solid var(--line); padding-top: 16px; }
+.ways p { color: var(--muted); font-size: 17px; }
+@media (max-width: 860px) { .ways { grid-template-columns: 1fr; } }
+.url { display: inline-block; font: 700 22px/1.2 Vazirmatn, sans-serif; letter-spacing: .01em; background: #fff; color: #0d1120; padding: 8px 14px; border-radius: 10px; margin: 2px 0 10px; word-break: break-all; }
+
+.callout { border-left: 3px solid var(--glow); padding: 4px 0 4px 18px; color: var(--muted); margin: 18px 0; }
+.callout strong { color: var(--ink); }
+
+table { width: 100%; border-collapse: collapse; font-size: 17px; }
+th, td { text-align: left; padding: 14px 16px 14px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; font-size: 15px; }
+td:first-child { color: var(--ink); width: 42%; }
+td:last-child { color: var(--muted); }
+.table-wrap { overflow-x: auto; }
+
+details { border-bottom: 1px solid var(--line); }
+details:first-of-type { border-top: 1px solid var(--line); }
+summary { cursor: pointer; padding: 18px 0; font-weight: 700; font-size: 19px; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; font-weight: 400; color: var(--muted); font-size: 24px; line-height: 1; transition: transform .2s ease; }
+details[open] summary::after { transform: rotate(45deg); }
+details > div { padding: 0 0 20px; color: var(--muted); max-width: 70ch; }
+
+.privacy ul { color: var(--muted); padding-left: 20px; margin: 0 0 14px; }
+.privacy li { margin-bottom: 6px; }
+
+footer { margin-top: 110px; border-top: 1px solid var(--line); padding: 40px 0 56px; color: var(--muted); font-size: 15px; }
+footer .cols { display: grid; grid-template-columns: 1.2fr 1fr 1fr; gap: 32px; }
+footer h3 { font-size: 16px; color: var(--ink); }
+footer ul { list-style: none; padding: 0; margin: 0; }
+footer li { margin-bottom: 6px; }
+@media (max-width: 760px) { footer .cols { grid-template-columns: 1fr; } }
+@media (max-width: 520px) { body { font-size: 17px; } .wrap { padding: 0 16px; } .screen { border-width: 6px; } section { padding-top: 72px; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="bar">
+  <a class="brand" href="#top"><img src="img/icon.svg" alt="">Koolest</a>
+  <nav aria-label="Sections">
+    <a href="#tour" class="opt">Tour</a>
+    <a href="#install">Install</a>
+    <a href="#setup" class="opt">Setup</a>
+    <a href="#help" class="opt">Help</a>
+    <a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher">GitHub</a>
+  </nav>
+</header>
+
+<main id="main">
+<div class="hero" id="top">
+  <div class="wrap">
+    <div>
+    <h1>Your TV's home screen, without the ads.</h1>
+    <p class="lede">Koolest is a free, open-source launcher for Android TV and Google TV. Your apps, your shows and your consoles, in a glass design made for the remote.</p>
+    <div class="actions">
+      <a class="btn primary" href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases/latest/download/Koolest.apk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+        Download Koolest.apk
+      </a>
+      <a class="btn" href="#install">How to install</a>
+    </div>
+    <p class="note">Version 2.1.1, for Android 8.0 and newer. Under 1 MB, no account.</p>
+    </div>
+
+    <figure class="tv">
+      <div class="screen">
+        <video id="demo" src="img/demo.mp4" poster="img/home.webp" muted loop playsinline preload="metadata"
+          aria-label="Koolest on a TV: browsing the rows, opening the menu and All apps, then settings"></video>
+        <button class="play" id="play" type="button" aria-label="Pause the video">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path id="playIcon" d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg>
+        </button>
+      </div>
+      <div class="stand"></div>
+      <figcaption>Recorded on a TCL Google TV with the remote. No edits, apart from cutting the pauses.</figcaption>
+    </figure>
+  </div>
+</div>
+
+<section id="tour">
+  <div class="wrap">
+    <h2>Look around</h2>
+    <p class="intro">This is how the home screen works, too: the row along the bottom, and a large picture of whatever you're on.</p>
+    <div class="stage">
+    <div class="billboard">
+      <img id="bbImg" src="img/home.webp" alt="" width="1600" height="900">
+    </div>
+    <div class="say" aria-live="polite"><h3 id="bbTitle">Continue watching</h3><p id="bbText"></p></div>
+    </div>
+    <div class="row" role="tablist" aria-label="Screens" id="row">
+      <button role="tab" data-img="home" data-text="Everything you're partway through, from every app that reports to the TV. The apps you use most come first.">
+        <img src="img/home-sm.webp" alt="" loading="lazy" width="480" height="270"><span>Continue watching</span></button>
+      <button role="tab" data-img="billboard" data-text="Move along a row and the background crossfades to the show you're on, with how much is left.">
+        <img src="img/billboard-sm.webp" alt="" loading="lazy" width="480" height="270"><span>The billboard</span></button>
+      <button role="tab" data-img="apps" data-text="Your apps as wide logo tiles. Hold OK on one to move it; choose which apps show and in what order.">
+        <img src="img/apps-sm.webp" alt="" loading="lazy" width="480" height="270"><span>Apps</span></button>
+      <button role="tab" data-img="consoles" data-text="PlayStation, Xbox, Switch, Steam Deck, Apple TV and more get a tile with their own mark. Select one to switch to its input.">
+        <img src="img/consoles-sm.webp" alt="" loading="lazy" width="480" height="270"><span>Consoles &amp; inputs</span></button>
+      <button role="tab" data-img="youtube" data-text="Rows from the apps you use: YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi and any app that publishes to the home screen.">
+        <img src="img/youtube-sm.webp" alt="" loading="lazy" width="480" height="270"><span>YouTube</span></button>
+      <button role="tab" data-img="spotify" data-text="Spotify's podcasts and shows, a row of their own. Any row can be turned off in settings.">
+        <img src="img/spotify-sm.webp" alt="" loading="lazy" width="480" height="270"><span>Spotify</span></button>
+      <button role="tab" data-img="menu" data-text="Press Left for the menu: Search, Home, your pinned apps and consoles, then All apps. Pin and reorder them in settings.">
+        <img src="img/menu-sm.webp" alt="" loading="lazy" width="480" height="270"><span>The menu</span></button>
+      <button role="tab" data-img="allapps" data-text="Every app, sorted in your home order, A to Z, most used, recently used or recently installed.">
+        <img src="img/allapps-sm.webp" alt="" loading="lazy" width="480" height="270"><span>All apps</span></button>
+      <button role="tab" data-img="settings" data-text="Six short groups: Look, Home screen, Continue watching, Weather, Screensaver and This TV.">
+        <img src="img/settings-sm.webp" alt="" loading="lazy" width="480" height="270"><span>Settings</span></button>
+      <button role="tab" data-img="look" data-text="Light, dark or automatic theme. Your own wallpapers, uploaded from your phone, or a new Unsplash photo as often as you like.">
+        <img src="img/look-sm.webp" alt="" loading="lazy" width="480" height="270"><span>Look</span></button>
+      <button role="tab" data-img="thistv" data-text="The Home button, updates, a PIN lock for the layout, and the two setup switches that replace the adb steps.">
+        <img src="img/thistv-sm.webp" alt="" loading="lazy" width="480" height="270"><span>This TV</span></button>
+    </div>
+    <p class="hint">Use <kbd>←</kbd> <kbd>→</kbd> on your keyboard, like the remote.</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="intro">Koolest shows what you actually use. There are no sponsored rows, no account and no tracking, and it's a single small app with no third-party libraries.</p>
+    <ul class="features">
+      <li><h3>Continue watching that works</h3><p>Everything apps report as partway watched, from Android TV's Watch Next list and each app's own channels. Browser tabs stay out.</p></li>
+      <li><h3>Rows from your apps</h3><p>YouTube, 30nama, Spotify and every other app that publishes to the TV's home screen. Empty rows don't show, and any row can be turned off.</p></li>
+      <li><h3>Consoles and inputs</h3><p>Devices that name themselves over HDMI-CEC get a tile with their own logo. Selecting one switches the TV to that input.</p></li>
+      <li><h3>A glass design</h3><p>The menu floats in a frosted capsule, and the clock, weather and buttons share one line at the top. Focused cards grow and lift.</p></li>
+      <li><h3>The Home button, kept</h3><p>On Google TV, Home opens Koolest even where the system launcher can't be replaced. Or make Koolest the only launcher, from the remote.</p></li>
+      <li><h3>Weather and a clock</h3><p>The time and date in the corner, and if you turn it on, the weather with what it feels like and your city.</p></li>
+      <li><h3>Wallpapers and a screensaver</h3><p>Upload a photo from your phone with a QR code, or get a new Unsplash photo on a schedule. The Gallery screensaver shows public-domain paintings.</p></li>
+      <li><h3>A PIN for the layout</h3><p>Lock settings and home screen changes behind a PIN, so small hands can't rearrange everything. Apps still open as usual.</p></li>
+      <li><h3>Updates from GitHub</h3><p>Koolest checks for a new version once a day and installs it when you choose, from Settings, This TV, Updates.</p></li>
+      <li><h3>Smooth on TV hardware</h3><p>Pictures load just ahead of where you're browsing, and the home screen draws as few full-screen layers as it can.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="wrap split">
+    <figure>
+      <img class="shot" src="img/gallery.webp" alt="Icebergs, a painting by Frederic Edwin Church, as shown by the Gallery screensaver" loading="lazy" width="1600" height="900">
+      <figcaption>The Gallery screensaver: The Icebergs, Frederic Edwin Church, 1861.</figcaption>
+    </figure>
+    <div>
+      <h2>When the TV rests</h2>
+      <p class="intro">Choose Gallery in Settings, Screensaver, and the TV shows 19th-century landscape paintings by Church, Shishkin, Cropsey and Heade. They're in the public domain, and they download only if you pick this screensaver.</p>
+    </div>
+  </div>
+</section>
+
+<section id="install">
+  <div class="wrap">
+    <h2>Install</h2>
+    <p class="intro">Koolest isn't on the Play Store yet, so it's installed as an APK file. It works on Android TV and Google TV with Android 8.0 or newer.</p>
+    <div class="ways">
+      <div>
+        <h3>With the Downloader app</h3>
+        <p>Install <strong>Downloader</strong> by AFTVnews from the Play Store on your TV. Open it and type this address:</p>
+        <span class="url">koolesttvlauncher.github.io/get</span>
+        <p>Choose Install when it asks. The first time, Android asks you to allow Downloader to install apps.</p>
+      </div>
+      <div>
+        <h3>From a USB drive</h3>
+        <p><a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases/latest/download/Koolest.apk">Download Koolest.apk</a> on a computer, copy it to a USB drive, and open it on the TV with a file manager.</p>
+      </div>
+      <div>
+        <h3>With adb</h3>
+        <p>If you already use adb with your TV:</p>
+        <pre><code>adb install Koolest.apk</code></pre>
+      </div>
+    </div>
+    <p class="note">Then open <strong>Koolest TV Launcher</strong> from your apps. Its settings open on the first launch, ready for setup.</p>
+  </div>
+</section>
+
+<section id="setup">
+  <div class="wrap split">
+    <div>
+      <h2>Set up</h2>
+      <p class="intro">Everything is in Koolest settings, This TV. Only the first step is required.</p>
+      <ol class="steps">
+        <li>
+          <h3>Turn on the Home button</h3>
+          <p>Choose <strong>Home button</strong>. In the Accessibility screen that opens, turn on <strong>Koolest: Home button</strong>. Allow the TV listings permission when asked; the rows need it.</p>
+          <p>Android shows the same warning for every accessibility service. Koolest's only listens for the Home key and for the system launcher appearing. It can't read the screen.</p>
+        </li>
+        <li>
+          <h3>Keep Home working</h3>
+          <p>After a reboot, an update or a console session, Android can stop the Home button service. <strong>Keep Home working</strong> gives Koolest permission to switch it back on by itself.</p>
+        </li>
+        <li>
+          <h3>Make Koolest the only launcher, if you like</h3>
+          <p>Google TV's own home screen always outranks other launchers. <strong>Only launcher</strong> turns it off, so Home always means Koolest. Switch it off to bring Google TV back. Nothing is uninstalled.</p>
+        </li>
+      </ol>
+      <div class="callout">
+        <p><strong>Steps 2 and 3 use the TV's debugging.</strong> The first time, Koolest shows how to turn it on: press OK seven times on the Android TV OS build in Settings, About, then turn on USB debugging in Developer options. When the TV asks, tick Always allow and choose Allow. You can turn debugging off again afterwards; the changes stay.</p>
+      </div>
+    </div>
+    <div>
+      <figure>
+        <img class="shot" src="img/thistv-panel.webp" alt="Koolest settings, This TV: Home button on, Keep Home working done, Default home yes, Only launcher on, PIN lock off, Updates 2.1.1 latest" loading="lazy" width="800" height="560">
+        <figcaption>This TV, set up: Home button on, Keep Home working done, Only launcher on.</figcaption>
+      </figure>
+      <figure style="margin-top:28px">
+        <img class="shot" src="img/allow.webp" alt="The TV's prompt: Allow USB debugging? with Always allow from this computer ticked, and Allow and Cancel buttons" loading="lazy" width="500" height="240">
+        <figcaption>The TV asks once. Tick Always allow, then choose Allow.</figcaption>
+      </figure>
+      <p class="note">With Only launcher on, holding Home no longer opens the Google TV dashboard, and its quick-settings panel and profiles go with it. Android's full Settings app still works.</p>
+    </div>
+  </div>
+</section>
+
+<section id="using">
+  <div class="wrap">
+    <h2>Using Koolest</h2>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th scope="col">To</th><th scope="col">Go to</th></tr></thead>
+      <tbody>
+        <tr><td>Turn home rows on or off</td><td>Settings, Home screen, Rows</td></tr>
+        <tr><td>Pin, remove or reorder apps in the menu</td><td>Settings, Home screen, Menu apps</td></tr>
+        <tr><td>Rearrange the Apps row</td><td>Hold OK on an app, or Settings, Home screen, Rearrange apps</td></tr>
+        <tr><td>Hide something from Continue watching</td><td>Hold OK on its card</td></tr>
+        <tr><td>Choose which apps feed Continue watching</td><td>Settings, Continue watching, Apps</td></tr>
+        <tr><td>Sort All apps</td><td>Open All apps and pick a sort at the top</td></tr>
+        <tr><td>Change the theme or wallpaper</td><td>Settings, Look</td></tr>
+        <tr><td>Lock the layout with a PIN</td><td>Settings, This TV, PIN lock</td></tr>
+        <tr><td>Get back to the start of the home screen</td><td>Press Back: first to the row's first item, then to the menu, then to the top</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<section id="help">
+  <div class="wrap">
+    <h2>Help</h2>
+    <p class="intro">Something not working? These cover most of it. If not, <a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/issues/new/choose">open an issue</a> and say which TV you have.</p>
+    <details>
+      <summary>Home opens Google TV after a reboot, an update or a console</summary>
+      <div><p>Choose <strong>Keep Home working</strong> in Settings, This TV. Then switch <strong>Home button</strong> off and on again. On TCL TVs this also allows Koolest past TCL's own auto-start guard.</p></div>
+    </details>
+    <details>
+      <summary>The Home button setting won't turn on (Android 13 and newer)</summary>
+      <div><p>Android blocks sideloaded apps from Accessibility at first. Open Android Settings, Apps, Koolest TV Launcher, choose <strong>Allow restricted settings</strong> from the menu, then try again.</p></div>
+    </details>
+    <details>
+      <summary>Keep Home working says to turn on debugging</summary>
+      <div><p>Koolest uses the TV's network debugging on port 5555. Turn on Developer options (press OK seven times on the build number in Settings, About), then USB debugging, and Network debugging if your TV lists it. TVs that only offer Android 11's pairing-code Wireless debugging aren't supported yet; use the adb lines in the <a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher#recommended-keep-the-home-button-working-adb">README</a> instead.</p></div>
+    </details>
+    <details>
+      <summary>Rows or Continue watching are empty</summary>
+      <div><p>Allow the TV listings permission. After that, an app only shows up if it reports to the TV. Google TV's own row also uses your Google account's history, which other apps can't read.</p></div>
+    </details>
+    <details>
+      <summary>Why only one YouTube account?</summary>
+      <div><p>YouTube publishes its home-screen rows for the account that's active in the YouTube app only. Switch accounts in YouTube and Koolest's row follows.</p></div>
+    </details>
+    <details>
+      <summary>How do I use my own wallpaper?</summary>
+      <div><p>In Settings, Look, open a theme's wallpaper and choose <strong>Add from phone</strong>. Scan the QR code with your phone, on the same Wi-Fi as the TV, and upload a photo. Or copy files over with adb:</p>
+      <pre><code>adb push my-wallpaper.jpg /sdcard/Android/data/dev.koolest/files/wallpapers/</code></pre></div>
+    </details>
+    <details>
+      <summary>How do I bring Google TV back?</summary>
+      <div><p>Switch off <strong>Only launcher</strong> in Settings, This TV. From a computer, <code>adb shell pm enable com.google.android.apps.tv.launcherx</code> does the same. A factory reset also brings it back.</p></div>
+    </details>
+  </div>
+</section>
+
+<section id="privacy" class="privacy">
+  <div class="wrap split">
+    <div>
+      <h2>Privacy</h2>
+      <p class="intro">No analytics, no ads, no account.</p>
+    </div>
+    <div>
+      <p>Koolest only connects to the internet to:</p>
+      <ul>
+        <li>load artwork for the cards on the home screen</li>
+        <li>check GitHub for a new version once a day, and download it when you choose</li>
+        <li>download the Gallery paintings, only if you choose that screensaver</li>
+        <li>download a photo from Lorem Picsum, only if you choose Unsplash photos</li>
+        <li>fetch the weather, only if you turn it on, from ipwho.is and Open-Meteo</li>
+      </ul>
+      <p>Add from phone runs a small upload page on the TV itself, reachable only on your home network and only while that screen is open.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap cols">
+    <div>
+      <h3>Koolest TV Launcher</h3>
+      <p>Free software under the <a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE">GNU GPL v3.0</a>. Based on <a href="https://github.com/aradhyas8/Plume_Launcher">Plume Launcher</a> by aradhyas8, with a design language from the 30nama TV app.</p>
+    </div>
+    <div>
+      <h3>Project</h3>
+      <ul>
+        <li><a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher">Source code</a></li>
+        <li><a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases">Releases</a></li>
+        <li><a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/CONTRIBUTING.md">Contributing</a></li>
+        <li><a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/issues">Report a problem</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Credits</h3>
+      <ul>
+        <li>Font: <a href="https://github.com/rastikerdar/vazirmatn">Vazirmatn</a> by Saber Rastikerdar</li>
+        <li>Wallpaper: "Canada" by Thomas Curryer, <a href="https://unsplash.com/@tawc20">Unsplash</a></li>
+        <li>Paintings: public domain, via Wikimedia Commons</li>
+        <li>Logos are trademarks of their owners</li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+// The tour row: arrow keys move along it like the remote, and the billboard follows.
+(() => {
+  const row = document.getElementById('row');
+  const tabs = [...row.querySelectorAll('button')];
+  const img = document.getElementById('bbImg');
+  const title = document.getElementById('bbTitle');
+  const text = document.getElementById('bbText');
+  let current = -1;
+  function show(i, focus) {
+    if (i === current) return;
+    current = i;
+    tabs.forEach((t, j) => { t.setAttribute('aria-selected', j === i); t.tabIndex = j === i ? 0 : -1; });
+    const t = tabs[i];
+    title.textContent = t.querySelector('span').textContent;
+    text.textContent = t.dataset.text;
+    img.alt = t.querySelector('span').textContent + ': ' + t.dataset.text;
+    img.classList.add('out');
+    const next = new Image();
+    next.src = 'img/' + t.dataset.img + '.webp';
+    next.decode().catch(() => {}).then(() => { img.src = next.src; img.classList.remove('out'); });
+    if (focus) { t.focus(); t.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); }
+  }
+  tabs.forEach((t, i) => t.addEventListener('click', () => show(i, false)));
+  row.addEventListener('keydown', e => {
+    const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+    if (e.key === 'Home') { e.preventDefault(); return show(0, true); }
+    if (e.key === 'End') { e.preventDefault(); return show(tabs.length - 1, true); }
+    if (!step) return;
+    e.preventDefault();
+    show(Math.max(0, Math.min(tabs.length - 1, current + step)), true);
+  });
+  show(0, false);
+})();
+
+// The demo plays on its own unless motion is reduced; the button pauses it.
+(() => {
+  const v = document.getElementById('demo');
+  const b = document.getElementById('play');
+  const icon = document.getElementById('playIcon');
+  const PAUSE = 'M7 5h4v14H7zM13 5h4v14h-4z', PLAY = 'M8 5v14l11-7z';
+  function sync() {
+    icon.setAttribute('d', v.paused ? PLAY : PAUSE);
+    b.setAttribute('aria-label', v.paused ? 'Play the video' : 'Pause the video');
+  }
+  b.addEventListener('click', () => { v.paused ? v.play() : v.pause(); });
+  v.addEventListener('play', sync);
+  v.addEventListener('pause', sync);
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) v.play().catch(sync);
+  sync();
+})();
+</script>
+</body>
+</html>
