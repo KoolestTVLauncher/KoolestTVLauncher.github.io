@@ -89,6 +89,10 @@ def main():
         for k in ("tour", "features", "steps", "using", "faq", "privacy", "footer_links", "credits", "facts"):
             assert len(en[k]) == len(s[k]), (c, k)
         assert [t["img"] for t in s["tour"]] == [t["img"] for t in en["tour"]], c
+    # Persian in Persian letters: no Arabic yeh/kaf/teh marbuta, hamza forms, harakat or Arabic-Indic digits.
+    arabic = re.findall(r"[يكةىأإؤئً-ٕ٠-٩٫]",
+                        json.dumps(all_s["fa"], ensure_ascii=False))
+    assert not arabic, f"Arabic-only characters in fa.json: {sorted(set(arabic))}"
     for s in all_s.values():
         out = ROOT / s["path"].strip("/") / "index.html"
         out.parent.mkdir(exist_ok=True)
