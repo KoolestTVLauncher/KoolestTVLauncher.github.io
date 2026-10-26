@@ -170,9 +170,10 @@ h1 { font-size: clamp(42px, 6.6vw, 84px); line-height: 1; font-weight: 800; lett
 .tv { margin: 48px auto 0; max-width: 1040px; }
 .screen {
   position: relative; border-radius: 18px; overflow: hidden; background: #000;
-  border: 10px solid #0a0d17; box-shadow: 0 0 0 1px var(--edge), var(--shadow); aspect-ratio: 16 / 9;
+  border: 10px solid #0a0d17; box-shadow: 0 0 0 1px var(--edge), var(--shadow);
 }
-.screen video { width: 100%; height: 100%; object-fit: cover; }
+/* The picture is 16:9, not the box with its bezel: that would crop the recording's edges. */
+.screen video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 .stand { width: 26%; height: 10px; margin: 0 auto; background: linear-gradient(#0a0d17, #2b303d); border-radius: 0 0 10px 10px; }
 .play {
   position: absolute; right: 14px; bottom: 14px; width: 44px; height: 44px; border-radius: 50%;
