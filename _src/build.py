@@ -1,4 +1,5 @@
-"""Builds index.html (English) and fr/index.html (French) from page.html and the string files.
+"""Builds index.html (English), fr/index.html (French) and fa/index.html (Persian, right to left)
+from page.html and the string files.
 
 Run from anywhere: python3 _src/build.py. Pages publishes the built files; _src itself isn't served.
 """
@@ -9,6 +10,9 @@ from pathlib import Path
 
 SRC = Path(__file__).parent
 ROOT = SRC.parent
+SITE = "https://koolesttvlauncher.github.io"
+# Code, name in itself, top-bar label. English first: it's the x-default.
+LANGS = (("en", "English", "EN"), ("fr", "Français", "FR"), ("fa", "فارسی", "فا"))
 
 
 def icon(name):
@@ -21,13 +25,18 @@ def copy_btn(s, text):
 
 
 def code(s, text):
-    return f'<div class="copybox"><code>{html.escape(text)}</code>{copy_btn(s, text)}</div>'
+    return f'<div class="copybox"><code dir="ltr">{html.escape(text)}</code>{copy_btn(s, text)}</div>'
 
 
-def blocks(s):
+def blocks(s, all_s):
     """The repeated parts of the page, built from the lists in the string file."""
+    others = [(c, n, short) for c, n, short in LANGS if c != s["lang"]]
     return {
-        "alt_lang_upper": s["alt_lang"].upper(),
+        "alternates": "\n".join(
+            f'<link rel="alternate" hreflang="{c}" href="{SITE}{all_s[c]["path"]}">' for c, _, _ in LANGS),
+        "lang_chips": "".join(
+            f'<a class="chip" href="{all_s[c]["path"]}" hreflang="{c}" lang="{c}" data-lang-link title="{n}">{short}</a>'
+            for c, n, short in others),
         "facts_list": "".join(f"<li>{icon('check')}{f}</li>" for f in s["facts"]),
         "tour_buttons": "".join(
             f'<button role="tab" type="button" aria-selected="false" tabindex="-1">'
@@ -44,17 +53,20 @@ def blocks(s):
         "footer_links_list": "".join(f'<li><a href="{u}">{t}</a></li>' for t, u in s["footer_links"]),
         "credits_list": "".join(f"<li>{c}</li>" for c in s["credits"]),
         "lang_seg": "".join(
-            f'<a href="{path}" hreflang="{code_}" lang="{code_}" data-lang-link'
-            + (' aria-current="true"' if code_ == s["lang"] else "") + f">{name}</a>"
-            for code_, path, name in (("en", "/", "English"), ("fr", "/fr/", "Français"))),
+            f'<a href="{all_s[c]["path"]}" hreflang="{c}" lang="{c}" data-lang-link'
+            + (' aria-current="true"' if c == s["lang"] else "") + f">{n}</a>"
+            for c, n, _ in LANGS),
+        # The banner offering another language is written in that language, so each page carries the others' offers.
         "js_strings": json.dumps({k: s[k] for k in (
-            "lang", "alt_lang", "theme_label", "theme_auto", "theme_light", "theme_dark",
-            "of", "copy", "copied", "play", "pause")} | {"tour": s["tour"]}, ensure_ascii=False).replace("</", "<\\/"),
+            "lang", "dir", "theme_label", "theme_auto", "theme_light", "theme_dark",
+            "of", "copy", "copied", "play", "pause")} | {"tour": s["tour"]} | {"suggest": {
+                c: {"path": all_s[c]["path"], "dir": all_s[c]["dir"], "text": all_s[c]["suggest_text"], "go": all_s[c]["suggest_go"]}
+                for c, _, _ in others}}, ensure_ascii=False).replace("</", "<\\/"),
     }
 
 
-def render(template, s):
-    values = {k: v for k, v in s.items() if isinstance(v, str)} | blocks(s)
+def render(template, s, all_s):
+    values = {k: v for k, v in s.items() if isinstance(v, str)} | blocks(s, all_s)
     out = template
     # Repeat until no placeholders are left: some strings carry their own {{code:...}}.
     for _ in range(3):
@@ -68,16 +80,19 @@ def render(template, s):
 
 def main():
     template = (SRC / "page.html").read_text()
-    en = json.loads((SRC / "en.json").read_text())
-    fr = json.loads((SRC / "fr.json").read_text())
-    # Both languages must say the same things.
-    assert en.keys() == fr.keys(), en.keys() ^ fr.keys()
-    for k in ("tour", "features", "steps", "using", "faq", "privacy", "footer_links", "credits", "facts"):
-        assert len(en[k]) == len(fr[k]), k
-    for s in (en, fr):
+    all_s = {c: json.loads((SRC / f"{c}.json").read_text()) for c, _, _ in LANGS}
+    en = all_s["en"]
+    # Every language must say the same things.
+    for c, s in all_s.items():
+        assert s["lang"] == c and s["dir"] in ("ltr", "rtl"), c
+        assert en.keys() == s.keys(), (c, en.keys() ^ s.keys())
+        for k in ("tour", "features", "steps", "using", "faq", "privacy", "footer_links", "credits", "facts"):
+            assert len(en[k]) == len(s[k]), (c, k)
+        assert [t["img"] for t in s["tour"]] == [t["img"] for t in en["tour"]], c
+    for s in all_s.values():
         out = ROOT / s["path"].strip("/") / "index.html"
         out.parent.mkdir(exist_ok=True)
-        out.write_text(render(template, s))
+        out.write_text(render(template, s, all_s))
         print("wrote", out.relative_to(ROOT))
 
 

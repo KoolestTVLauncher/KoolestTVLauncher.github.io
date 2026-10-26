@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://koolesttvlauncher.github.io/fr/">
 <link rel="alternate" hreflang="en" href="https://koolesttvlauncher.github.io/">
 <link rel="alternate" hreflang="fr" href="https://koolesttvlauncher.github.io/fr/">
+<link rel="alternate" hreflang="fa" href="https://koolesttvlauncher.github.io/fa/">
 <link rel="alternate" hreflang="x-default" href="https://koolesttvlauncher.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Koolest TV Launcher">
@@ -91,10 +92,13 @@ a:hover { text-decoration-color: currentColor; }
 ::selection { background: var(--accent); color: #fff; }
 svg.i { width: 1.2em; height: 1.2em; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 code, pre { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .84em; }
+/* Commands and keys read left to right inside Persian text too. */
+code, kbd { direction: ltr; unicode-bidi: isolate; }
+pre { direction: ltr; text-align: left; }
 :not(pre) > code { background: var(--raised); padding: .12em .42em; border-radius: 6px; overflow-wrap: anywhere; }
 .wrap { max-width: var(--col); margin: 0 auto; padding: 0 max(24px, env(safe-area-inset-left)); }
-.skip { position: absolute; left: -999px; top: 8px; z-index: 30; background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 8px; }
-.skip:focus { left: 16px; }
+.skip { position: absolute; inset-inline-start: -999px; top: 8px; z-index: 30; background: var(--ink); color: var(--bg); padding: 8px 14px; border-radius: 8px; }
+.skip:focus { inset-inline-start: 16px; }
 .muted { color: var(--muted); }
 p { margin: 0 0 14px; }
 
@@ -103,12 +107,12 @@ p { margin: 0 0 14px; }
   position: sticky; top: 12px; z-index: 20;
   margin: 12px auto 0; width: calc(100% - 32px); max-width: calc(var(--col) - 48px);
   display: flex; align-items: center; gap: 6px;
-  padding: 7px 7px 7px 16px;
+  padding: 7px; padding-inline-start: 16px;
   background: var(--bar);
   backdrop-filter: blur(18px) saturate(1.5); -webkit-backdrop-filter: blur(18px) saturate(1.5);
   border: 1px solid var(--edge); border-radius: 999px;
 }
-.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; text-decoration: none; margin-right: auto; white-space: nowrap; }
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 19px; text-decoration: none; margin-inline-end: auto; white-space: nowrap; }
 .brand img { width: 28px; height: 28px; }
 .links { display: flex; gap: 2px; }
 .links a { text-decoration: none; color: var(--muted); padding: 7px 13px; border-radius: 999px; font-size: 16px; white-space: nowrap; }
@@ -143,11 +147,11 @@ p { margin: 0 0 14px; }
 .suggest { max-width: calc(var(--col) - 48px); width: calc(100% - 32px); margin: 10px auto 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; padding: 10px 16px; border-radius: 16px; background: var(--raised); font-size: 16px; }
 .suggest[hidden] { display: none; }
 .suggest a { font-weight: 700; }
-.suggest button { margin-left: auto; background: none; border: 0; color: var(--muted); font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.suggest button { margin-inline-start: auto; background: none; border: 0; color: var(--muted); font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 
 /* Hero */
 .hero { position: relative; padding: 64px 0 24px; isolation: isolate; overflow-x: clip; }
-.hero::before { content: ""; position: absolute; inset: 20% -10% -10% 30%; z-index: -1; background: radial-gradient(50% 50% at 50% 50%, var(--glow), transparent 70%); pointer-events: none; }
+.hero::before { content: ""; position: absolute; inset-block: 20% -10%; inset-inline: 30% -10%; z-index: -1; background: radial-gradient(50% 50% at 50% 50%, var(--glow), transparent 70%); pointer-events: none; }
 h1 { font-size: clamp(42px, 6.6vw, 84px); line-height: 1; font-weight: 800; letter-spacing: -.028em; margin: 0 0 22px; max-width: 13ch; text-wrap: balance; }
 .lede { font-size: clamp(19px, 2vw, 22px); color: var(--muted); max-width: 40ch; margin: 0 0 30px; font-weight: 300; text-wrap: pretty; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -207,7 +211,7 @@ h3 { font-size: 21px; line-height: 1.3; margin: 0 0 6px; font-weight: 700; text-
 .say h3 { font-size: clamp(22px, 2.4vw, 30px); font-weight: 800; margin: 0 0 10px; }
 .say p { color: var(--muted); }
 .pager { display: flex; align-items: center; gap: 8px; margin-top: 18px; }
-.pager .count { color: var(--muted); font-size: 15px; margin-right: auto; font-variant-numeric: tabular-nums; }
+.pager .count { color: var(--muted); font-size: 15px; margin-inline-end: auto; font-variant-numeric: tabular-nums; }
 .round { width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--edge); background: var(--surface); color: var(--ink); display: grid; place-items: center; cursor: pointer; }
 .round:hover { background: var(--raised); }
 .round:disabled { opacity: .4; cursor: default; }
@@ -223,7 +227,7 @@ h3 { font-size: 21px; line-height: 1.3; margin: 0 0 6px; font-weight: 700; text-
 .row::after { content: ""; flex: 0 0 1px; } /* keeps the end padding when scrolled all the way */
 .row button {
   flex: 0 0 auto; width: 200px; padding: 0; border: 0; background: none; color: var(--muted);
-  font: 500 15px/1.3 Vazirmatn, sans-serif; text-align: left; cursor: pointer; scroll-snap-align: start;
+  font: 500 15px/1.3 Vazirmatn, sans-serif; text-align: start; cursor: pointer; scroll-snap-align: start;
 }
 .row button img {
   width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; background: #0a0d17;
@@ -261,7 +265,7 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; }
 .way.first { grid-row: span 1; }
 .way p { color: var(--muted); font-size: 17px; }
 @media (max-width: 960px) { .ways { grid-template-columns: 1fr; } }
-.copybox { display: flex; align-items: center; gap: 8px; background: var(--code); border: 1px solid var(--line); border-radius: 12px; padding: 6px 6px 6px 16px; margin: 4px 0 14px; }
+.copybox { display: flex; align-items: center; gap: 8px; background: var(--code); border: 1px solid var(--line); border-radius: 12px; padding: 6px; padding-inline-start: 16px; margin: 4px 0 14px; }
 .copybox code, .copybox span { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; background: none; padding: 8px 0; scrollbar-width: none; }
 .copybox span { font: 700 19px/1.2 Vazirmatn, sans-serif; }
 .copy { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border-radius: 9px; border: 1px solid var(--edge); background: var(--raised); color: var(--ink); font: 600 14px/1 Vazirmatn, sans-serif; cursor: pointer; }
@@ -270,12 +274,12 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; }
 
 /* Setup steps: a real sequence */
 .steps { list-style: none; counter-reset: step; margin: 0; padding: 0; }
-.steps > li { counter-increment: step; position: relative; padding: 0 0 26px 58px; }
+.steps > li { counter-increment: step; position: relative; padding: 0 0 26px; padding-inline-start: 58px; }
 .steps > li::before {
-  content: counter(step); position: absolute; left: 0; top: -2px; width: 38px; height: 38px; border-radius: 50%;
+  content: counter(step); position: absolute; inset-inline-start: 0; top: -2px; width: 38px; height: 38px; border-radius: 50%;
   display: grid; place-items: center; font-weight: 800; font-size: 17px; background: var(--ink); color: var(--bg);
 }
-.steps > li:not(:last-child)::after { content: ""; position: absolute; left: 18px; top: 42px; bottom: 6px; width: 2px; background: var(--line); }
+.steps > li:not(:last-child)::after { content: ""; position: absolute; inset-inline-start: 18px; top: 42px; bottom: 6px; width: 2px; background: var(--line); }
 .steps p { color: var(--muted); margin: 0 0 8px; }
 .steps h3 { padding-top: 4px; }
 .callout { background: var(--raised); border-radius: 16px; padding: 18px 20px; color: var(--muted); margin: 8px 0 0; }
@@ -284,7 +288,7 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; }
 .figs { display: grid; gap: 28px; }
 
 table { width: 100%; border-collapse: collapse; font-size: 17px; }
-th, td { text-align: left; padding: 15px 16px 15px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th, td { text-align: start; padding: 15px 0; padding-inline-end: 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { color: var(--muted); font-weight: 500; font-size: 15px; }
 td:first-child { width: 42%; font-weight: 500; }
 td:last-child { color: var(--muted); }
@@ -303,7 +307,7 @@ td:last-child { color: var(--muted); }
 .faq details > div { padding: 0 0 22px; color: var(--muted); max-width: 72ch; }
 pre { margin: 0; }
 
-.privacy ul { color: var(--muted); padding-left: 20px; margin: 0 0 14px; }
+.privacy ul { color: var(--muted); padding-inline-start: 20px; margin: 0 0 14px; }
 .privacy li { margin-bottom: 6px; }
 
 footer { margin-top: 120px; border-top: 1px solid var(--line); padding: 44px 0 calc(48px + env(safe-area-inset-bottom)); color: var(--muted); font-size: 15px; }
@@ -322,7 +326,12 @@ dialog.lb { padding: 0; border: 0; background: transparent; max-width: min(96vw,
 dialog.lb::backdrop { background: rgba(5, 8, 16, .86); backdrop-filter: blur(6px); }
 dialog.lb img { max-height: 88vh; width: auto; border-radius: 12px; margin: 0 auto; }
 dialog.lb p { color: #e6e8f0; text-align: center; margin: 12px 0 0; font-size: 16px; }
-dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .3); background: rgba(0, 0, 0, .4); color: #fff; display: grid; place-items: center; cursor: pointer; }
+dialog.lb .x { position: absolute; top: -52px; inset-inline-end: 0; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .3); background: rgba(0, 0, 0, .4); color: #fff; display: grid; place-items: center; cursor: pointer; }
+
+/* Persian: joined letters can't take negative tracking, and its marks need taller lines. Arrows point the reading way. */
+[dir="rtl"] h1, [dir="rtl"] h2 { letter-spacing: 0; line-height: 1.3; }
+[dir="rtl"] h1 { max-width: 16ch; }
+[dir="rtl"] .round svg { transform: scaleX(-1); }
 
 @media (max-width: 520px) { body { font-size: 17px; } section { padding-top: 80px; } .screen { border-width: 6px; } .hero { padding-top: 40px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before { transition: none !important; } html { scroll-behavior: auto; } }
@@ -367,7 +376,7 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
       <a href="#help">Aide</a>
     </nav>
     <div class="tools">
-      <a class="chip" href="/" hreflang="en" lang="en" data-lang-link title="English">EN</a>
+      <a class="chip" href="/" hreflang="en" lang="en" data-lang-link title="English">EN</a><a class="chip" href="/fa/" hreflang="fa" lang="fa" data-lang-link title="فارسی">فا</a>
       <button class="chip" type="button" id="themeBtn" aria-label="Thème: Auto"><svg class="i"><use href="#i-auto"/></svg></button>
       <a class="chip" href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher" aria-label="GitHub"><svg class="i"><use href="#i-github"/></svg></a>
     </div>
@@ -375,8 +384,8 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
   <a class="chip dl" href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/releases/latest/download/Koolest.apk" aria-label="Télécharger Koolest.apk"><svg class="i"><use href="#i-download"/></svg><span>Télécharger</span></a>
   <button class="chip menu-btn" type="button" id="menuBtn" aria-expanded="false" aria-controls="drawer" aria-label="Menu"><svg class="i"><use href="#i-menu"/></svg></button>
 </header>
-<div class="suggest" id="suggest" lang="en" hidden>
-  <span>This site is also in English.</span> <a href="/" data-lang-link>Read in English</a>
+<div class="suggest" id="suggest" hidden>
+  <span id="suggestText"></span> <a id="suggestGo" data-lang-link></a>
   <button type="button" id="suggestClose">Rester en français</button>
 </div>
 
@@ -460,7 +469,7 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
       <div class="way first">
         <h3>Avec l’appli Downloader</h3>
         <p>Installez <strong>Downloader</strong> d’AFTVnews depuis le Play Store de votre télé. Ouvrez-la et tapez cette adresse :</p>
-        <div class="copybox"><span>koolesttvlauncher.github.io/get</span><button class="copy" type="button" data-copy="koolesttvlauncher.github.io/get"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span>Copier</span></button></div>
+        <div class="copybox"><span dir="ltr">koolesttvlauncher.github.io/get</span><button class="copy" type="button" data-copy="koolesttvlauncher.github.io/get"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span>Copier</span></button></div>
         <p>Choisissez Installer quand on vous le demande. La première fois, Android vous demande d’autoriser Downloader à installer des applis.</p>
       </div>
       <div class="way">
@@ -470,7 +479,7 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
       <div class="way">
         <h3>Avec adb</h3>
         <p>Si vous utilisez déjà adb avec votre télé :</p>
-        <div class="copybox"><code>adb install Koolest.apk</code><button class="copy" type="button" data-copy="adb install Koolest.apk"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span>Copier</span></button></div>
+        <div class="copybox"><code dir="ltr">adb install Koolest.apk</code><button class="copy" type="button" data-copy="adb install Koolest.apk"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span>Copier</span></button></div>
       </div>
     </div>
     <p class="note" style="margin-top:22px">Ouvrez ensuite <strong>Koolest TV Launcher</strong> dans vos applis. Ses réglages s’ouvrent au premier lancement, prêts pour la configuration.</p>
@@ -513,7 +522,7 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
   <div class="wrap">
     <h2 id="help-h">Aide</h2>
     <p class="intro">Quelque chose ne fonctionne pas? Ces réponses couvrent l’essentiel. Sinon, <a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/issues/new/choose">ouvrez un ticket</a> en indiquant votre modèle de télé.</p>
-    <div class="faq"><details><summary>Accueil ouvre Google TV après un redémarrage, une mise à jour ou une console<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Choisissez <strong>Keep Home working</strong> dans Settings, This TV. Puis désactivez et réactivez <strong>Home button</strong>. Sur les télés TCL, cela permet aussi à Koolest de passer le blocage de démarrage automatique de TCL.</p></div></details><details><summary>Le bouton Accueil refuse de s’activer (Android 13 et plus récent)<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Android bloque d’abord l’accessibilité pour les applis installées hors du Play Store. Ouvrez Paramètres Android, Applis, Koolest TV Launcher, choisissez <strong>Autoriser les paramètres restreints</strong> dans le menu, puis réessayez.</p></div></details><details><summary>Keep Home working me demande d’activer le débogage<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Koolest utilise le débogage réseau de la télé sur le port 5555. Activez les Options pour les développeurs (appuyez sept fois sur OK sur le numéro de version dans Paramètres, À propos), puis le débogage USB, et le débogage réseau si votre télé le propose. Les télés qui n’offrent que le débogage sans fil avec code d’association d’Android 11 ne sont pas encore prises en charge; utilisez plutôt les commandes adb du <a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher#recommended-keep-the-home-button-working-adb">README</a>.</p></div></details><details><summary>Les rangées ou Continuer à regarder sont vides<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Autorisez l’accès aux listes de chaînes. Ensuite, une appli n’apparaît que si elle signale son contenu à la télé. La rangée de Google TV utilise aussi l’historique de votre compte Google, que les autres applis ne peuvent pas lire.</p></div></details><details><summary>Pourquoi un seul compte YouTube?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>YouTube publie ses rangées d’accueil seulement pour le compte actif dans l’appli YouTube. Changez de compte dans YouTube et la rangée de Koolest suit.</p></div></details><details><summary>Comment utiliser mon propre fond d’écran?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Dans Settings, Look, ouvrez le fond d’écran d’un thème et choisissez <strong>Add from phone</strong>. Lisez le code QR avec votre téléphone, sur le même Wi-Fi que la télé, et envoyez une photo. Ou copiez des fichiers avec adb :</p><div class="copybox"><code>adb push my-wallpaper.jpg /sdcard/Android/data/dev.koolest/files/wallpapers/</code><button class="copy" type="button" data-copy="adb push my-wallpaper.jpg /sdcard/Android/data/dev.koolest/files/wallpapers/"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span>Copier</span></button></div></div></details><details><summary>Comment retrouver Google TV?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Désactivez <strong>Only launcher</strong> dans Settings, This TV. Depuis un ordinateur, <code>adb shell pm enable com.google.android.apps.tv.launcherx</code> fait la même chose. Une réinitialisation aux paramètres d’usine le ramène aussi.</p></div></details></div>
+    <div class="faq"><details><summary>Accueil ouvre Google TV après un redémarrage, une mise à jour ou une console<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Choisissez <strong>Keep Home working</strong> dans Settings, This TV. Puis désactivez et réactivez <strong>Home button</strong>. Sur les télés TCL, cela permet aussi à Koolest de passer le blocage de démarrage automatique de TCL.</p></div></details><details><summary>Le bouton Accueil refuse de s’activer (Android 13 et plus récent)<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Android bloque d’abord l’accessibilité pour les applis installées hors du Play Store. Ouvrez Paramètres Android, Applis, Koolest TV Launcher, choisissez <strong>Autoriser les paramètres restreints</strong> dans le menu, puis réessayez.</p></div></details><details><summary>Keep Home working me demande d’activer le débogage<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Koolest utilise le débogage réseau de la télé sur le port 5555. Activez les Options pour les développeurs (appuyez sept fois sur OK sur le numéro de version dans Paramètres, À propos), puis le débogage USB, et le débogage réseau si votre télé le propose. Les télés qui n’offrent que le débogage sans fil avec code d’association d’Android 11 ne sont pas encore prises en charge; utilisez plutôt les commandes adb du <a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher#recommended-keep-the-home-button-working-adb">README</a>.</p></div></details><details><summary>Les rangées ou Continuer à regarder sont vides<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Autorisez l’accès aux listes de chaînes. Ensuite, une appli n’apparaît que si elle signale son contenu à la télé. La rangée de Google TV utilise aussi l’historique de votre compte Google, que les autres applis ne peuvent pas lire.</p></div></details><details><summary>Pourquoi un seul compte YouTube?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>YouTube publie ses rangées d’accueil seulement pour le compte actif dans l’appli YouTube. Changez de compte dans YouTube et la rangée de Koolest suit.</p></div></details><details><summary>Comment utiliser mon propre fond d’écran?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Dans Settings, Look, ouvrez le fond d’écran d’un thème et choisissez <strong>Add from phone</strong>. Lisez le code QR avec votre téléphone, sur le même Wi-Fi que la télé, et envoyez une photo. Ou copiez des fichiers avec adb :</p><div class="copybox"><code dir="ltr">adb push my-wallpaper.jpg /sdcard/Android/data/dev.koolest/files/wallpapers/</code><button class="copy" type="button" data-copy="adb push my-wallpaper.jpg /sdcard/Android/data/dev.koolest/files/wallpapers/"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span>Copier</span></button></div></div></details><details><summary>Comment retrouver Google TV?<svg class="i" aria-hidden="true"><use href="#i-plus"/></svg></summary><div><p>Désactivez <strong>Only launcher</strong> dans Settings, This TV. Depuis un ordinateur, <code>adb shell pm enable com.google.android.apps.tv.launcherx</code> fait la même chose. Une réinitialisation aux paramètres d’usine le ramène aussi.</p></div></details></div>
   </div>
 </section>
 
@@ -538,7 +547,7 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
       <h3>Koolest TV Launcher</h3>
       <p>Créé par <a href="https://github.com/benymaxparsa">Parsa Kamalipour</a>. Logiciel libre sous <a href="https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE">licence GNU GPL v3.0</a>. Basé sur <a href="https://github.com/aradhyas8/Plume_Launcher">Plume Launcher</a> d’aradhyas8, avec un langage visuel inspiré de l’appli télé de 30nama.</p>
       <div class="prefs">
-        <div class="seg" role="group" aria-label="Langue"><a href="/" hreflang="en" lang="en" data-lang-link>English</a><a href="/fr/" hreflang="fr" lang="fr" data-lang-link aria-current="true">Français</a></div>
+        <div class="seg" role="group" aria-label="Langue"><a href="/" hreflang="en" lang="en" data-lang-link>English</a><a href="/fr/" hreflang="fr" lang="fr" data-lang-link aria-current="true">Français</a><a href="/fa/" hreflang="fa" lang="fa" data-lang-link>فارسی</a></div>
         <div class="seg" role="group" aria-label="Thème" id="themeSeg">
           <button type="button" data-theme-set="auto">Auto</button>
           <button type="button" data-theme-set="light">Clair</button>
@@ -563,7 +572,7 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
   <p id="lbCap"></p>
 </dialog>
 
-<script id="t" type="application/json">{"lang": "fr", "alt_lang": "en", "theme_label": "Thème", "theme_auto": "Auto", "theme_light": "Clair", "theme_dark": "Sombre", "of": "sur", "copy": "Copier", "copied": "Copié", "play": "Lire la vidéo", "pause": "Mettre la vidéo en pause", "tour": [{"img": "home", "title": "Continuer à regarder", "text": "Tout ce que vous avez commencé, dans chaque appli qui le signale à la télé. Les applis que vous utilisez le plus passent en premier."}, {"img": "billboard", "title": "La grande affiche", "text": "Déplacez-vous dans une rangée et le fond passe en fondu à l’émission sélectionnée, avec le temps qu’il reste."}, {"img": "nowplaying", "title": "En cours de lecture", "text": "Pendant la musique, la pochette, le titre et l’artiste s’affichent dans la barre du haut, comme une activité en direct dans la Dynamic Island."}, {"img": "apps", "title": "Applis", "text": "Vos applis en larges tuiles à logo. Maintenez OK sur l’une d’elles pour la déplacer, et choisissez lesquelles s’affichent et dans quel ordre."}, {"img": "consoles", "title": "Consoles et entrées", "text": "PlayStation, Xbox, Switch, Steam Deck, Apple TV et d’autres ont une tuile avec leur propre logo. Sélectionnez-en une pour passer à son entrée."}, {"img": "youtube", "title": "YouTube", "text": "Des rangées tirées de vos applis : YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi et toute appli qui publie sur l’écran d’accueil."}, {"img": "rows", "title": "Des rangées à votre goût", "text": "Masquez une rangée, ou montez-la et descendez-la, dans Settings, Home screen, Rows."}, {"img": "menu", "title": "Le menu", "text": "Appuyez sur Gauche pour le menu : Recherche, Accueil, vos applis et consoles épinglées, puis Toutes les applis. Épinglez-les et réordonnez-les dans les réglages."}, {"img": "allapps", "title": "Toutes les applis", "text": "Toutes vos applis, triées dans l’ordre de l’accueil, de A à Z, par utilisation, par utilisation récente ou par installation récente."}, {"img": "settings", "title": "Réglages", "text": "Six groupes courts : Look, Home screen, Continue watching, Weather, Screensaver et This TV, sur une carte de verre flottante."}, {"img": "look", "title": "Apparence", "text": "Thème clair, sombre ou automatique. Vos propres fonds d’écran depuis votre téléphone, ou une nouvelle photo Unsplash aussi souvent que vous le voulez."}, {"img": "thistv", "title": "Cette télé", "text": "Le bouton Accueil, les mises à jour, un NIP pour verrouiller la disposition, et les deux interrupteurs qui remplacent les étapes adb."}]}</script>
+<script id="t" type="application/json">{"lang": "fr", "dir": "ltr", "theme_label": "Thème", "theme_auto": "Auto", "theme_light": "Clair", "theme_dark": "Sombre", "of": "sur", "copy": "Copier", "copied": "Copié", "play": "Lire la vidéo", "pause": "Mettre la vidéo en pause", "tour": [{"img": "home", "title": "Continuer à regarder", "text": "Tout ce que vous avez commencé, dans chaque appli qui le signale à la télé. Les applis que vous utilisez le plus passent en premier."}, {"img": "billboard", "title": "La grande affiche", "text": "Déplacez-vous dans une rangée et le fond passe en fondu à l’émission sélectionnée, avec le temps qu’il reste."}, {"img": "nowplaying", "title": "En cours de lecture", "text": "Pendant la musique, la pochette, le titre et l’artiste s’affichent dans la barre du haut, comme une activité en direct dans la Dynamic Island."}, {"img": "apps", "title": "Applis", "text": "Vos applis en larges tuiles à logo. Maintenez OK sur l’une d’elles pour la déplacer, et choisissez lesquelles s’affichent et dans quel ordre."}, {"img": "consoles", "title": "Consoles et entrées", "text": "PlayStation, Xbox, Switch, Steam Deck, Apple TV et d’autres ont une tuile avec leur propre logo. Sélectionnez-en une pour passer à son entrée."}, {"img": "youtube", "title": "YouTube", "text": "Des rangées tirées de vos applis : YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi et toute appli qui publie sur l’écran d’accueil."}, {"img": "rows", "title": "Des rangées à votre goût", "text": "Masquez une rangée, ou montez-la et descendez-la, dans Settings, Home screen, Rows."}, {"img": "menu", "title": "Le menu", "text": "Appuyez sur Gauche pour le menu : Recherche, Accueil, vos applis et consoles épinglées, puis Toutes les applis. Épinglez-les et réordonnez-les dans les réglages."}, {"img": "allapps", "title": "Toutes les applis", "text": "Toutes vos applis, triées dans l’ordre de l’accueil, de A à Z, par utilisation, par utilisation récente ou par installation récente."}, {"img": "settings", "title": "Réglages", "text": "Six groupes courts : Look, Home screen, Continue watching, Weather, Screensaver et This TV, sur une carte de verre flottante."}, {"img": "look", "title": "Apparence", "text": "Thème clair, sombre ou automatique. Vos propres fonds d’écran depuis votre téléphone, ou une nouvelle photo Unsplash aussi souvent que vous le voulez."}, {"img": "thistv", "title": "Cette télé", "text": "Le bouton Accueil, les mises à jour, un NIP pour verrouiller la disposition, et les deux interrupteurs qui remplacent les étapes adb."}], "suggest": {"en": {"path": "/", "dir": "ltr", "text": "This site is also in English.", "go": "Read in English"}, "fa": {"path": "/fa/", "dir": "rtl", "text": "این سایت به فارسی هم هست.", "go": "خواندن به فارسی"}}}</script>
 <script>
 (() => {
   const T = JSON.parse(document.getElementById('t').textContent);
@@ -587,8 +596,14 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
 
   // Language: remember a choice made here, and offer the other language once to readers who use it.
   document.querySelectorAll('[data-lang-link]').forEach(a => a.addEventListener('click', () => store.set('lang', a.hreflang || a.lang)));
-  const firstKnown = (navigator.languages || [navigator.language]).map(l => (l || '').slice(0, 2).toLowerCase()).find(l => l === 'en' || l === 'fr');
-  if (firstKnown === T.alt_lang && !store.get('lang') && !store.get('suggest-closed')) $('suggest').hidden = false;
+  const firstKnown = (navigator.languages || [navigator.language]).map(l => (l || '').slice(0, 2).toLowerCase()).find(l => l === T.lang || l in T.suggest);
+  const offer = T.suggest[firstKnown];
+  if (offer && !store.get('lang') && !store.get('suggest-closed')) {
+    const text = $('suggestText'), go = $('suggestGo');
+    text.textContent = offer.text; go.textContent = offer.go; go.href = offer.path; go.hreflang = firstKnown;
+    [text, go].forEach(el => { el.lang = firstKnown; el.dir = offer.dir; });
+    $('suggest').hidden = false;
+  }
   $('suggestClose').addEventListener('click', () => { $('suggest').hidden = true; store.set('suggest-closed', '1'); });
 
   // Phone menu
@@ -626,7 +641,7 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
     const t = tabs[i], it = T.tour[i];
     $('bbTitle').textContent = it.title;
     $('bbText').textContent = it.text;
-    $('bbCount').textContent = (i + 1) + ' ' + T.of + ' ' + tabs.length;
+    $('bbCount').textContent = (i + 1).toLocaleString(T.lang) + ' ' + T.of + ' ' + tabs.length.toLocaleString(T.lang);
     $('bbPrev').disabled = i === 0;
     $('bbNext').disabled = i === tabs.length - 1;
     const img = $('bbImg'), next = new Image();
@@ -635,12 +650,15 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
     next.decode().catch(() => {}).then(() => { if (current !== i) return; img.src = next.src; img.alt = it.title + ': ' + it.text; img.classList.remove('out'); });
     const behavior = reduce.matches ? 'auto' : 'smooth';
     const row = $('row');
-    row.scrollTo({ left: t.offsetLeft - row.clientWidth / 2 + t.clientWidth / 2, behavior });
+    // Measured on screen, so it centres the same way in both directions (scrollLeft runs negative in RTL).
+    const tr = t.getBoundingClientRect(), rr = row.getBoundingClientRect();
+    row.scrollBy({ left: tr.left + tr.width / 2 - (rr.left + rr.width / 2), behavior });
     if (focus) t.focus({ preventScroll: true });
   }
   tabs.forEach((t, i) => t.addEventListener('click', () => show(i, false)));
   $('row').addEventListener('keydown', e => {
-    const to = { ArrowRight: current + 1, ArrowLeft: current - 1, Home: 0, End: tabs.length - 1 }[e.key];
+    const step = T.dir === 'rtl' ? -1 : 1; // the row runs right to left in Persian
+    const to = { ArrowRight: current + step, ArrowLeft: current - step, Home: 0, End: tabs.length - 1 }[e.key];
     if (to === undefined) return;
     e.preventDefault();
     show(to, true);
