@@ -436,8 +436,11 @@ dialog.lb .x { position: absolute; top: -52px; right: 0; width: 44px; height: 44
 
 <section id="gallery" aria-labelledby="gallery-h">
   <div class="wrap split center">
-    <figure>
-      <video src="/img/screensaver.mp4" poster="/img/screensaver-poster.webp" muted loop autoplay playsinline preload="none" width="1280" height="720" aria-label="{{gallery_video_label}}"></video>
+    <figure class="tv" style="margin:0">
+      <div class="screen">
+        <video src="/img/screensaver.mp4" poster="/img/screensaver-poster.webp" muted loop autoplay playsinline preload="none" width="1280" height="720" aria-label="{{gallery_video_label}}"></video>
+      </div>
+      <div class="stand"></div>
       <figcaption>{{gallery_caption}}</figcaption>
     </figure>
     <div>
