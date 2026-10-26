@@ -59,6 +59,11 @@
       "text": "Déplacez-vous dans une rangée et le fond passe en fondu à l’émission sélectionnée, avec le temps qu’il reste."
     },
     {
+      "img": "nowplaying",
+      "title": "En cours de lecture",
+      "text": "Pendant la musique, la pochette, le titre et l’artiste s’affichent dans la barre du haut, comme une activité en direct dans la Dynamic Island."
+    },
+    {
       "img": "apps",
       "title": "Applis",
       "text": "Vos applis en larges tuiles à logo. Maintenez OK sur l’une d’elles pour la déplacer, et choisissez lesquelles s’affichent et dans quel ordre."
@@ -74,9 +79,9 @@
       "text": "Des rangées tirées de vos applis : YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi et toute appli qui publie sur l’écran d’accueil."
     },
     {
-      "img": "spotify",
-      "title": "Spotify",
-      "text": "Les balados et émissions de Spotify ont leur propre rangée. Chaque rangée peut être désactivée dans les réglages."
+      "img": "rows",
+      "title": "Des rangées à votre goût",
+      "text": "Masquez une rangée, ou montez-la et descendez-la, dans Settings, Home screen, Rows."
     },
     {
       "img": "menu",
@@ -91,7 +96,7 @@
     {
       "img": "settings",
       "title": "Réglages",
-      "text": "Six petits groupes : Look (apparence), Home screen (écran d’accueil), Continue watching, Weather (météo), Screensaver (écran de veille) et This TV."
+      "text": "Six groupes courts : Look, Home screen, Continue watching, Weather, Screensaver et This TV, sur une carte de verre flottante."
     },
     {
       "img": "look",
@@ -113,9 +118,9 @@
       "text": "Tout ce que les applis signalent comme commencé, à partir de la liste À suivre d’Android TV et des chaînes de chaque appli. Les onglets du navigateur restent à l’écart."
     },
     {
-      "icon": "rows",
-      "title": "Des rangées tirées de vos applis",
-      "text": "YouTube, 30nama, Spotify et toute autre appli qui publie sur l’écran d’accueil de la télé. Les rangées vides ne s’affichent pas, et chacune peut être désactivée."
+      "title": "Des rangées pour vos applis",
+      "text": "YouTube, 30nama, Spotify et toute appli qui publie sur l’écran d’accueil de la télé. Masquez une rangée, ou changez son ordre.",
+      "icon": "rows"
     },
     {
       "icon": "gamepad",
@@ -123,9 +128,9 @@
       "text": "Les appareils qui s’identifient par HDMI-CEC ont une tuile avec leur propre logo. En sélectionner un fait passer la télé à son entrée."
     },
     {
-      "icon": "sparkle",
-      "title": "Un design en verre",
-      "text": "Le menu flotte dans une capsule givrée, et l’horloge, la météo et les boutons partagent une ligne en haut. Les cartes sélectionnées grandissent et se soulèvent."
+      "title": "Liquid Glass",
+      "text": "Le style d’iOS 26 : le menu et la barre du haut sont en verre et laissent voir ce qu’il y a derrière, les réglages s’ouvrent en carte flottante sur un écran flouté, et l’élément sélectionné capte un reflet de lumière.",
+      "icon": "sparkle"
     },
     {
       "icon": "home",
@@ -133,9 +138,9 @@
       "text": "Sur Google TV, Accueil ouvre Koolest même là où le lanceur du système ne peut pas être remplacé. Ou faites de Koolest le seul lanceur, à la télécommande."
     },
     {
-      "icon": "weather",
-      "title": "Météo et horloge",
-      "text": "L’heure et la date dans le coin et, si vous l’activez, la météo avec la température ressentie et votre ville."
+      "title": "Météo, horloge et musique",
+      "text": "L’heure et la date (grégorienne, persane ou les deux) dans la barre du haut avec la météo, et le morceau en cours avec sa pochette.",
+      "icon": "weather"
     },
     {
       "icon": "image",
@@ -307,5 +312,5 @@
     "Les logos sont des marques de leurs propriétaires"
   ],
   "gallery_video_label": "L’écran de veille Galerie : les pages météo défilent et le tableau change",
-  "gallery_points": "<li>Une grande horloge avec le calendrier grégorien, persan (solaire hégirien) ou les deux</li><li>La météo actuelle, puis les prochaines heures, cinq jours et les détails, qui défilent comme StandBy (▲ ▼ sur la télécommande)</li><li>La musique en cours, avec la pochette et la progression (Settings, Screensaver, Music)</li><li>◀ ▶ pour passer d’un tableau à l’autre</li>"
+  "gallery_points": "<li>Une grande horloge avec le calendrier grégorien, persan (solaire hégirien) ou les deux, séparés ou réunis</li><li>La météo actuelle, puis les prochaines heures, cinq jours et les détails, qui défilent comme StandBy (▲ ▼ sur la télécommande)</li><li>La musique en cours, avec la pochette et la progression (Settings, Screensaver, Music)</li><li>Choisissez quand il démarre et quand la télé se met en veille</li><li>◀ ▶ pour passer d’un tableau à l’autre</li>"
 }

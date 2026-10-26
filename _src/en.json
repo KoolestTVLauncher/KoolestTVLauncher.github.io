@@ -59,6 +59,11 @@
       "text": "Move along a row and the background crossfades to the show you’re on, with how much is left."
     },
     {
+      "img": "nowplaying",
+      "title": "Now playing",
+      "text": "While music plays, the cover, song and artist sit in the top bar, like a Live Activity in the Dynamic Island."
+    },
+    {
       "img": "apps",
       "title": "Apps",
       "text": "Your apps as wide logo tiles. Hold OK on one to move it, and choose which apps show and in what order."
@@ -74,9 +79,9 @@
       "text": "Rows from the apps you use: YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi and any app that publishes to the home screen."
     },
     {
-      "img": "spotify",
-      "title": "Spotify",
-      "text": "Spotify’s podcasts and shows get a row of their own. Any row can be turned off in settings."
+      "img": "rows",
+      "title": "Rows your way",
+      "text": "Turn any row off, or move it up or down, in Settings, Home screen, Rows."
     },
     {
       "img": "menu",
@@ -91,7 +96,7 @@
     {
       "img": "settings",
       "title": "Settings",
-      "text": "Six short groups: Look, Home screen, Continue watching, Weather, Screensaver and This TV."
+      "text": "Six short groups: Look, Home screen, Continue watching, Weather, Screensaver and This TV, on a floating glass card."
     },
     {
       "img": "look",
@@ -113,9 +118,9 @@
       "text": "Everything apps report as partway watched, from Android TV’s Watch Next list and each app’s own channels. Browser tabs stay out."
     },
     {
-      "icon": "rows",
       "title": "Rows from your apps",
-      "text": "YouTube, 30nama, Spotify and every other app that publishes to the TV’s home screen. Empty rows don’t show, and any row can be turned off."
+      "text": "YouTube, 30nama, Spotify and every other app that publishes to the TV’s home screen. Turn any row off, or move it up or down.",
+      "icon": "rows"
     },
     {
       "icon": "gamepad",
@@ -123,9 +128,9 @@
       "text": "Devices that name themselves over HDMI-CEC get a tile with their own logo. Selecting one switches the TV to that input."
     },
     {
-      "icon": "sparkle",
-      "title": "A glass design",
-      "text": "The menu floats in a frosted capsule, and the clock, weather and buttons share one line at the top. Focused cards grow and lift."
+      "title": "Liquid Glass",
+      "text": "The iOS 26 look: the menu and top bar are glass that shows what’s behind them, settings opens as a floating card over a blurred screen, and a focused item catches a sweep of light.",
+      "icon": "sparkle"
     },
     {
       "icon": "home",
@@ -133,9 +138,9 @@
       "text": "On Google TV, Home opens Koolest even where the system launcher can’t be replaced. Or make Koolest the only launcher, from the remote."
     },
     {
-      "icon": "weather",
-      "title": "Weather and a clock",
-      "text": "The time and date in the corner and, if you turn it on, the weather with what it feels like and your city."
+      "title": "Weather, a clock and what’s playing",
+      "text": "The time and date (Gregorian, Persian or both) in the top bar with the weather, and the song that’s playing, with its cover.",
+      "icon": "weather"
     },
     {
       "icon": "image",
@@ -307,5 +312,5 @@
     "Logos are trademarks of their owners"
   ],
   "gallery_video_label": "The Gallery screensaver, its weather pages turning and the painting changing",
-  "gallery_points": "<li>A big clock with Gregorian, Persian (Shamsi) or both calendars</li><li>The weather now, then the next hours, five days and details, turning like StandBy (▲ ▼ on the remote)</li><li>What’s playing, with the cover and progress (Settings, Screensaver, Music)</li><li>◀ ▶ step through the paintings</li>"
+  "gallery_points": "<li>A big clock with Gregorian, Persian (Shamsi) or both calendars, in a tile each or together</li><li>The weather now, then the next hours, five days and details, turning like StandBy (▲ ▼ on the remote)</li><li>What’s playing, with the cover and progress (Settings, Screensaver, Music)</li><li>Choose when it starts and when the TV goes to sleep</li><li>◀ ▶ step through the paintings</li>"
 }
