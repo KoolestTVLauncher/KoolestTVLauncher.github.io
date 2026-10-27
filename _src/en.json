@@ -24,7 +24,7 @@
   "suggest_go": "Read in English",
   "suggest_stay": "Stay in English",
   "h1": "Your TV’s home screen, without the ads.",
-  "lede": "Koolest is a free, open-source launcher for Android TV and Google TV. Your apps, your shows and your consoles, in a glass design made for the remote.",
+  "lede": "Koolest is a free, open-source launcher for Android TV and Google TV, on any brand of TV or box. Your apps, your shows and your consoles, in a glass design made for the remote.",
   "cta_download": "Download Koolest.apk",
   "cta_install": "How to install",
   "facts": [
@@ -32,7 +32,7 @@
     "No ads, no tracking",
     "Under 1 MB"
   ],
-  "version_note": "Version <span data-version>2.1.1</span>, for Android 8.0 and newer.",
+  "version_note": "Version <span data-version>2.5.1</span>, for Android 8.0 and newer.",
   "video_label": "Koolest on a TV: browsing the rows, opening the menu and All apps, then settings",
   "video_caption": "Recorded on a TCL Google TV with the remote. Only the pauses were cut.",
   "play": "Play the video",
@@ -99,7 +99,7 @@
     {
       "img": "look",
       "title": "Look",
-      "text": "Light, dark or automatic theme. Your own wallpapers from your phone, or a new Unsplash photo as often as you like."
+      "text": "English, French or Persian. Light, dark or automatic theme. Your own wallpapers from your phone, or a new Unsplash photo as often as you like."
     },
     {
       "img": "thistv",
@@ -131,9 +131,14 @@
       "icon": "sparkle"
     },
     {
+      "icon": "globe",
+      "title": "In English, French and Persian",
+      "text": "Pick a language in Settings, Look, or follow the TV’s. Persian reads right to left, with Persian digits and dates. App names follow too, where the app has them."
+    },
+    {
       "icon": "home",
       "title": "The Home button, kept",
-      "text": "On Google TV, Home opens Koolest even where the system launcher can’t be replaced. Or make Koolest the only launcher, from the remote."
+      "text": "Home opens Koolest even where the TV’s own launcher can’t be replaced, whether it’s Google TV’s, Android TV’s or your TV maker’s. Or make Koolest the only launcher, from the remote."
     },
     {
       "title": "Weather, a clock and what’s playing",
@@ -165,7 +170,7 @@
   "gallery_text": "Choose Gallery in Settings, Screensaver. 21 public-domain landscape paintings, or your own photos, under a clock, calendar and weather on frosted glass. The paintings download only if you pick this screensaver.",
   "gallery_caption": "The Gallery screensaver on a TV.",
   "install_h": "Install",
-  "install_intro": "Koolest isn’t on the Play Store yet, so it’s installed as an APK file. It works on Android TV and Google TV with Android 8.0 or newer.",
+  "install_intro": "Koolest isn’t on the Play Store yet, so it’s installed as an APK file. It works on Android TV and Google TV with Android 8.0 or newer, from any brand: TCL, Sony, Philips, Hisense, Xiaomi, Chromecast, NVIDIA Shield and more.",
   "install_downloader_h": "With the Downloader app",
   "install_downloader_1": "Install <strong>Downloader</strong> by AFTVnews from the Play Store on your TV. Open it and type this address:",
   "install_downloader_2": "Choose Install when it asks. The first time, Android asks you to allow Downloader to install apps.",
@@ -189,7 +194,7 @@
     },
     {
       "title": "Make Koolest the only launcher, if you like",
-      "html": "<p>Google TV’s own home screen always outranks other launchers. <strong>Only launcher</strong> turns it off, so Home always means Koolest. Switch it off to bring Google TV back. Nothing is uninstalled.</p>"
+      "html": "<p>The TV’s own home screen (Google TV, Android TV or your TV maker’s) always outranks other launchers. <strong>Only launcher</strong> turns it off, so Home always means Koolest. Switch it off to bring the old one back. Nothing is uninstalled.</p>"
     }
   ],
   "callout": "<strong>Steps 2 and 3 use the TV’s debugging.</strong> The first time, Koolest shows how to turn it on: press OK seven times on the Android TV OS build in Settings, About, then turn on USB debugging in Developer options. When the TV asks, tick Always allow and choose Allow. You can turn debugging off again afterwards; the changes stay.",
@@ -227,6 +232,10 @@
       "Open All apps and pick a sort at the top"
     ],
     [
+      "Change the language",
+      "Settings, Look, Language"
+    ],
+    [
       "Change the theme or wallpaper",
       "Settings, Look"
     ],
@@ -242,6 +251,10 @@
   "help_h": "Help",
   "help_intro": "Something not working? These cover most of it. If not, <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/issues/new/choose\">open an issue</a> and say which TV you have.",
   "faq": [
+    {
+      "q": "Will it work on my TV?",
+      "a": "<p>On any Android TV or Google TV with Android 8.0 or newer, whatever the brand. Fire TV is the exception: Amazon doesn’t let other launchers take over its home screen.</p>"
+    },
     {
       "q": "Home opens Google TV after a reboot, an update or a console",
       "a": "<p>Choose <strong>Keep Home working</strong> in Settings, This TV. Then switch <strong>Home button</strong> off and on again. On TCL TVs this also lets Koolest past TCL’s own auto-start guard.</p>"
