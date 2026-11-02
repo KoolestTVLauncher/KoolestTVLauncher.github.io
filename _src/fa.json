@@ -74,7 +74,7 @@
     {
       "img": "youtube",
       "title": "یوتیوب",
-      "text": "ردیف‌هایی از برنامه‌هایی که استفاده می‌کنید: YouTube، سی‌نما، Spotify، Netflix، Prime Video، Tubi و هر برنامه‌ای که برای صفحه اصلی محتوا می‌فرستد."
+      "text": "ردیف‌هایی از برنامه‌هایی که استفاده می‌کنید: YouTube، Spotify، Netflix، Prime Video، Tubi و هر برنامه‌ای که برای صفحه اصلی محتوا می‌فرستد."
     },
     {
       "img": "rows",
@@ -117,7 +117,7 @@
     },
     {
       "title": "ردیف‌هایی از برنامه‌های خودتان",
-      "text": "YouTube، سی‌نما، Spotify و هر برنامه دیگری که برای صفحه اصلی تلویزیون محتوا می‌فرستد. هر ردیف را می‌توانید خاموش کنید یا جابه‌جا کنید.",
+      "text": "YouTube، Spotify و هر برنامه دیگری که برای صفحه اصلی تلویزیون محتوا می‌فرستد. هر ردیف را می‌توانید خاموش کنید یا جابه‌جا کنید.",
       "icon": "rows"
     },
     {
@@ -295,7 +295,7 @@
     "دریافت آب‌وهوا از ipwho.is و Open-Meteo، فقط اگر آن را روشن کنید"
   ],
   "privacy_after": "گزینه «موسیقی» در تنظیمات اسکرین‌سیور، دسترسی به اعلان‌ها را فعال می‌کند، چون اندروید فقط از این راه می‌گوید چه آهنگی در حال پخش است. Koolest جز آهنگ در حال پخش چیز دیگری را نمی‌خواند. گزینه «افزودن از گوشی شما» هم یک صفحه کوچک آپلود روی خود تلویزیون راه می‌اندازد که فقط از شبکه خانگی شما و فقط تا وقتی آن صفحه باز است در دسترس است.",
-  "footer_about": "ساخته <a href=\"https://github.com/benymaxparsa\">پارسا کمالی‌پور</a>. نرم‌افزار آزاد با مجوز <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">GNU GPL v3.0</a>. بر پایه <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> از aradhyas8، با الهام از زبان طراحی برنامه تلویزیونی سی‌نما.",
+  "footer_about": "ساخته <a href=\"https://github.com/benymaxparsa\">پارسا کمالی‌پور</a>. نرم‌افزار آزاد با مجوز <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">GNU GPL v3.0</a>. بر پایه <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> از aradhyas8.",
   "footer_project": "پروژه",
   "footer_links": [
     [

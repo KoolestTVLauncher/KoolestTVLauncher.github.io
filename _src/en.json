@@ -74,7 +74,7 @@
     {
       "img": "youtube",
       "title": "YouTube",
-      "text": "Rows from the apps you use: YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi and any app that publishes to the home screen."
+      "text": "Rows from the apps you use: YouTube, Spotify, Netflix, Prime Video, Tubi and any app that publishes to the home screen."
     },
     {
       "img": "rows",
@@ -117,7 +117,7 @@
     },
     {
       "title": "Rows from your apps",
-      "text": "YouTube, 30nama, Spotify and every other app that publishes to the TV’s home screen. Turn any row off, or move it up or down.",
+      "text": "YouTube, Spotify and every other app that publishes to the TV’s home screen. Turn any row off, or move it up or down.",
       "icon": "rows"
     },
     {
@@ -295,7 +295,7 @@
     "fetch the weather, only if you turn it on, from ipwho.is and Open-Meteo"
   ],
   "privacy_after": "Music in the screensaver settings turns on notification access, the only way Android shares what’s playing. Koolest reads the playing track and nothing else. Add from phone runs a small upload page on the TV itself, reachable only on your home network and only while that screen is open.",
-  "footer_about": "Made by <a href=\"https://github.com/benymaxparsa\">Parsa Kamalipour</a>. Free software under the <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">GNU GPL v3.0</a>. Based on <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> by aradhyas8, with a design language from the 30nama TV app.",
+  "footer_about": "Made by <a href=\"https://github.com/benymaxparsa\">Parsa Kamalipour</a>. Free software under the <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">GNU GPL v3.0</a>. Based on <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> by aradhyas8.",
   "footer_project": "Project",
   "footer_links": [
     [
