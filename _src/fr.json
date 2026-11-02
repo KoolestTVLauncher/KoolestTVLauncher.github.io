@@ -74,7 +74,7 @@
     {
       "img": "youtube",
       "title": "YouTube",
-      "text": "Des rangées tirées de vos applis : YouTube, 30nama, Spotify, Netflix, Prime Video, Tubi et toute appli qui publie sur l’écran d’accueil."
+      "text": "Des rangées tirées de vos applis : YouTube, Spotify, Netflix, Prime Video, Tubi et toute appli qui publie sur l’écran d’accueil."
     },
     {
       "img": "rows",
@@ -117,7 +117,7 @@
     },
     {
       "title": "Des rangées pour vos applis",
-      "text": "YouTube, 30nama, Spotify et toute appli qui publie sur l’écran d’accueil de la télé. Masquez une rangée, ou changez son ordre.",
+      "text": "YouTube, Spotify et toute appli qui publie sur l’écran d’accueil de la télé. Masquez une rangée, ou changez son ordre.",
       "icon": "rows"
     },
     {
@@ -295,7 +295,7 @@
     "obtenir la météo, seulement si vous l’activez, auprès d’ipwho.is et d’Open-Meteo"
   ],
   "privacy_after": "Musique, dans les réglages de l’écran de veille, active l’accès aux notifications, seul moyen pour Android de partager ce qui joue. Koolest lit le morceau en cours et rien d’autre. L’option Ajouter depuis votre téléphone ouvre une petite page d’envoi sur la télé elle-même, accessible seulement sur votre réseau domestique et seulement pendant que cet écran est ouvert.",
-  "footer_about": "Créé par <a href=\"https://github.com/benymaxparsa\">Parsa Kamalipour</a>. Logiciel libre sous <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">licence GNU GPL v3.0</a>. Basé sur <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> d’aradhyas8, avec un langage visuel inspiré de l’appli télé de 30nama.",
+  "footer_about": "Créé par <a href=\"https://github.com/benymaxparsa\">Parsa Kamalipour</a>. Logiciel libre sous <a href=\"https://github.com/KoolestTVLauncher/Koolest-TV-Launcher/blob/main/LICENSE\">licence GNU GPL v3.0</a>. Basé sur <a href=\"https://github.com/aradhyas8/Plume_Launcher\">Plume Launcher</a> d’aradhyas8.",
   "footer_project": "Projet",
   "footer_links": [
     [
