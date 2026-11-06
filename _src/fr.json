@@ -32,7 +32,7 @@
     "Sans publicité ni pistage",
     "Moins de 1 Mo"
   ],
-  "version_note": "Version <span data-version>2.5.1</span>, pour Android 8.0 et plus récent.",
+  "version_note": "Version <span data-version>2.6.0</span>, pour Android 8.0 et plus récent.",
   "video_label": "Koolest sur une télé : on parcourt les rangées, on ouvre le menu et Toutes les applis, puis les réglages",
   "video_caption": "Enregistré sur une télé Google TV de TCL, à la télécommande. Seules les pauses ont été coupées.",
   "play": "Lire la vidéo",
@@ -49,7 +49,7 @@
     {
       "img": "home",
       "title": "Continuer à regarder",
-      "text": "Tout ce que vous avez commencé, dans chaque appli qui le signale à la télé. Les applis que vous utilisez le plus passent en premier."
+      "text": "Tout ce que vous avez commencé, dans chaque appli qui le signale à la télé. Les applis que vous utilisez le plus passent en premier, et vous choisissez combien de contenus chacune affiche."
     },
     {
       "img": "billboard",
@@ -138,7 +138,7 @@
     {
       "icon": "home",
       "title": "Le bouton Accueil, conservé",
-      "text": "Accueil ouvre Koolest même là où le lanceur de la télé ne peut pas être remplacé, qu’il vienne de Google TV, d’Android TV ou du fabricant. Ou faites de Koolest le seul lanceur, à la télécommande."
+      "text": "Accueil ouvre Koolest même là où le lanceur de la télé ne peut pas être remplacé, qu’il vienne de Google TV, d’Android TV ou du fabricant. Ou faites de Koolest le seul lanceur, à la télécommande. Apprenez-lui aussi n’importe quel autre bouton, et choisissez ce qu’il fait."
     },
     {
       "title": "Météo, horloge et musique",

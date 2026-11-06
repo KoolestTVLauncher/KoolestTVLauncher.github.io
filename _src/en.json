@@ -32,7 +32,7 @@
     "No ads, no tracking",
     "Under 1 MB"
   ],
-  "version_note": "Version <span data-version>2.5.1</span>, for Android 8.0 and newer.",
+  "version_note": "Version <span data-version>2.6.0</span>, for Android 8.0 and newer.",
   "video_label": "Koolest on a TV: browsing the rows, opening the menu and All apps, then settings",
   "video_caption": "Recorded on a TCL Google TV with the remote. Only the pauses were cut.",
   "play": "Play the video",
@@ -113,7 +113,7 @@
     {
       "icon": "play",
       "title": "Continue watching that works",
-      "text": "Everything apps report as partway watched, from Android TV’s Watch Next list and each app’s own channels. Browser tabs stay out."
+      "text": "Everything apps report as partway watched, from Android TV’s Watch Next list and each app’s own channels. Browser tabs stay out, and you choose how many shows each app gets."
     },
     {
       "title": "Rows from your apps",
@@ -138,7 +138,7 @@
     {
       "icon": "home",
       "title": "The Home button, kept",
-      "text": "Home opens Koolest even where the TV’s own launcher can’t be replaced, whether it’s Google TV’s, Android TV’s or your TV maker’s. Or make Koolest the only launcher, from the remote."
+      "text": "Home opens Koolest even where the TV’s own launcher can’t be replaced, whether it’s Google TV’s, Android TV’s or your TV maker’s. Or make Koolest the only launcher, from the remote. Teach it any other remote button too, and choose what it does."
     },
     {
       "title": "Weather, a clock and what’s playing",
