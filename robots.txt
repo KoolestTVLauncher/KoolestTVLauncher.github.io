@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://koolesttvlauncher.github.io/sitemap.xml
+Sitemap: https://koolest.parsakp.com/sitemap.xml

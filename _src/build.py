@@ -10,7 +10,7 @@ from pathlib import Path
 
 SRC = Path(__file__).parent
 ROOT = SRC.parent
-SITE = "https://koolesttvlauncher.github.io"
+SITE = "https://koolest.parsakp.com"
 # Code, name in itself, top-bar label. English first: it's the x-default.
 LANGS = (("en", "English", "EN"), ("fr", "Français", "FR"), ("fa", "فارسی", "فا"))
 
