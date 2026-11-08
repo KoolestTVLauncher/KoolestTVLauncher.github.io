@@ -270,9 +270,10 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; }
 .copybox code, .copybox span { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; background: none; padding: 8px 0; scrollbar-width: none; }
 /* The address is what people must type, so it's never clipped: Copy drops to its own line if they don't fit. */
 .copybox { flex-wrap: wrap; }
-.copybox span { flex: 1 0 auto; max-width: 100%; font: 700 18px/1.2 Vazirmatn, sans-serif; }
+.copybox > span, .way .copybox code { flex: 1 0 auto; max-width: 100%; }
+.copybox > span { font: 700 18px/1.2 Vazirmatn, sans-serif; }
 .copybox .copy { margin-inline-start: auto; }
-@media (max-width: 420px) { .copybox span { white-space: normal; font-size: 16px; } }
+@media (max-width: 420px) { .copybox > span { white-space: normal; font-size: 16px; } .way .copybox code { font-size: 13px; } }
 .copy { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border-radius: 9px; border: 1px solid var(--edge); background: var(--raised); color: var(--ink); font: 600 14px/1 Vazirmatn, sans-serif; cursor: pointer; }
 .copy:hover { border-color: var(--ink); }
 .copy[data-done] { color: #1e8e4e; border-color: currentColor; }
