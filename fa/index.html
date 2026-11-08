@@ -199,7 +199,7 @@ h3 { font-size: 21px; line-height: 1.3; margin: 0 0 6px; font-weight: 700; text-
 .intro { color: var(--muted); max-width: 60ch; margin: 0 0 40px; font-size: 19px; text-wrap: pretty; }
 
 /* The tour: a billboard and a row, the way Koolest's home screen works */
-.stage { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: end; }
+.stage { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: center; }
 .billboard {
   position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--edge); border-radius: var(--radius);
   overflow: hidden; aspect-ratio: 16 / 9; background: #0a0d17; cursor: zoom-in; box-shadow: var(--shadow);
@@ -262,12 +262,17 @@ figcaption { color: var(--muted); font-size: 15px; margin-top: 10px; }
 /* Install */
 .ways { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .way { background: var(--surface); border: 1px solid var(--edge); border-radius: 18px; padding: 24px; }
-.way.first { grid-row: span 1; }
+/* The Downloader way is the easy one: it gets the red edge and a lift, the other two stay quiet. */
+.way.first { border-color: var(--red); box-shadow: 0 0 0 1px var(--red), var(--shadow); }
 .way p { color: var(--muted); font-size: 17px; }
-@media (max-width: 960px) { .ways { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .ways { grid-template-columns: minmax(0, 1fr); } } /* minmax(0,…): a bare 1fr won't shrink below the no-wrap copy box and widens the page */
 .copybox { display: flex; align-items: center; gap: 8px; background: var(--code); border: 1px solid var(--line); border-radius: 12px; padding: 6px; padding-inline-start: 16px; margin: 4px 0 14px; }
 .copybox code, .copybox span { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; background: none; padding: 8px 0; scrollbar-width: none; }
-.copybox span { font: 700 19px/1.2 Vazirmatn, sans-serif; }
+/* The address is what people must type, so it's never clipped: Copy drops to its own line if they don't fit. */
+.copybox { flex-wrap: wrap; }
+.copybox span { flex: 1 0 auto; max-width: 100%; font: 700 18px/1.2 Vazirmatn, sans-serif; }
+.copybox .copy { margin-inline-start: auto; }
+@media (max-width: 420px) { .copybox span { white-space: normal; font-size: 16px; } }
 .copy { flex: none; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border-radius: 9px; border: 1px solid var(--edge); background: var(--raised); color: var(--ink); font: 600 14px/1 Vazirmatn, sans-serif; cursor: pointer; }
 .copy:hover { border-color: var(--ink); }
 .copy[data-done] { color: #1e8e4e; border-color: currentColor; }
@@ -470,7 +475,7 @@ dialog.lb .x { position: absolute; top: -52px; inset-inline-end: 0; width: 44px;
       <div class="way first">
         <h3>با برنامه Downloader</h3>
         <p>برنامه <strong>Downloader</strong> (ساخت AFTVnews) را از گوگل‌پلی روی تلویزیون نصب کنید، بازش کنید و این آدرس را وارد کنید:</p>
-        <div class="copybox"><span dir="ltr">koolesttvlauncher.github.io/get</span><button class="copy" type="button" data-copy="koolesttvlauncher.github.io/get"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span>کپی</span></button></div>
+        <div class="copybox"><span dir="ltr">koolesttvlauncher.github.io<wbr>/get</span><button class="copy" type="button" data-copy="koolesttvlauncher.github.io/get"><svg class="i" aria-hidden="true"><use href="#i-copy"/></svg><span>کپی</span></button></div>
         <p>وقتی پرسید، Install را بزنید. بار اول، اندروید از شما می‌خواهد به Downloader اجازه نصب برنامه بدهید.</p>
       </div>
       <div class="way">
