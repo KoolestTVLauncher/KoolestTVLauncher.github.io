@@ -32,7 +32,7 @@
     "No ads, no tracking",
     "Under 1 MB"
   ],
-  "version_note": "Version <span data-version>2.6.0</span>, for Android 8.0 and newer.",
+  "version_note": "Version <span data-version>2.7.0</span>, for Android 8.0 and newer.",
   "video_label": "Koolest on a TV: browsing the rows, opening the menu and All apps, then settings",
   "video_caption": "Recorded on a TCL Google TV with the remote. Only the pauses were cut.",
   "play": "Play the video",
@@ -79,7 +79,7 @@
     {
       "img": "rows",
       "title": "Rows your way",
-      "text": "Turn any row off, or move it up or down, in Settings, Home screen, Rows."
+      "text": "Turn any row off, or move it up or down, in Settings, Home screen, Rows. An app with several channels, like SmartTube, gets a row for each, and you choose which ones show."
     },
     {
       "img": "menu",

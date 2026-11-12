@@ -32,7 +32,7 @@
     "Sans publicité ni pistage",
     "Moins de 1 Mo"
   ],
-  "version_note": "Version <span data-version>2.6.0</span>, pour Android 8.0 et plus récent.",
+  "version_note": "Version <span data-version>2.7.0</span>, pour Android 8.0 et plus récent.",
   "video_label": "Koolest sur une télé : on parcourt les rangées, on ouvre le menu et Toutes les applis, puis les réglages",
   "video_caption": "Enregistré sur une télé Google TV de TCL, à la télécommande. Seules les pauses ont été coupées.",
   "play": "Lire la vidéo",
@@ -79,7 +79,7 @@
     {
       "img": "rows",
       "title": "Des rangées à votre goût",
-      "text": "Masquez une rangée, ou montez-la et descendez-la, dans Réglages, Écran d’accueil, Rangées."
+      "text": "Masquez une rangée, ou montez-la et descendez-la, dans Réglages, Écran d’accueil, Rangées. Une appli qui a plusieurs chaînes, comme SmartTube, a une rangée par chaîne, et vous choisissez celles qui s’affichent."
     },
     {
       "img": "menu",
